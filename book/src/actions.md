@@ -94,7 +94,21 @@ The action can be added within `constructed`.
 Most APIs for actions such as `Actionable` and as we will later see `MenuModel` allow use of detailed action names.
 This is a convenient way of specifying an action name and an action target with a single string.
 The most general format is `action-name(5)`.
-In case "5" is a string, the action has to be specified like this `action-name("5")`
+In case "5" is a string, the action has to be specified like this `action-name("5")`.
+
+That way this
+
+```xml
+              <property name="action-name">win.count</property>
+              <property name="action-target">1</property>
+```
+
+becomes to this
+
+```xml
+              <property name="action-name">win.count(1)</property>
+```
+              
 
 
 # Menus
