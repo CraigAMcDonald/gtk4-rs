@@ -38,32 +38,8 @@ impl ObjectImpl for Window {
         // Call "constructed" on parent
         self.parent_constructed(obj);
 
-        // Add stateful action "count" to `window` which takes an integer as parameter
-        let action_count =
-            SimpleAction::new_stateful("count", Some(&i32::static_variant_type()), &0.to_variant());
-        let label = self.label.get();
-        action_count.connect_activate(clone!(@weak label => move |action, parameter| {
-            // Get state
-            let mut state = action
-            .state()
-            .expect("Could not get state.")
-            .get::<i32>()
-            .expect("The value needs to be of type `i32`.");
-
-            // Get parameter
-            let parameter = parameter
-                .expect("Could not get parameter.")
-                .get::<i32>()
-                .expect("The value needs to be of type `i32`.");
-
-            // Increase state by parameter and store state
-            state += parameter;
-            action.set_state(&state.to_variant());
-
-            // Update label with new state
-            label.set_label(&format!("Counter: {}", state));
-        }));
-        obj.add_action(&action_count);
+        // Add actions
+        obj.add_actions();
     }
 }
 // ANCHOR_END: object_impl

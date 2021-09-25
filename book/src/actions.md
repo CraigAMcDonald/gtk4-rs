@@ -83,7 +83,13 @@ Within the template we can then set the "action-name" property.
 {{#rustdoc_include ../listings/actions/6/window/window.ui}}
 ```
 
-The action can be added within `constructed`.
+We add the action within the newly created method `add_actions`.
+
+```rust ,no_run,noplayground
+{{#rustdoc_include ../listings/actions/6/window/mod.rs:impl_window}}
+```
+
+`add_actions` will then be called within `constructed`.
 
 <span class="filename">Filename: listings/actions/6/window/imp.rs</span>
 

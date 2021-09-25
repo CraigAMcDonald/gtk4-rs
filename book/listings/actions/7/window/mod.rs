@@ -1,6 +1,9 @@
 mod imp;
 
-use glib::Object;
+use gio::SimpleAction;
+use glib::{clone, Object};
+use gtk::prelude::*;
+use gtk::subclass::prelude::*;
 use gtk::Application;
 use gtk::{gio, glib};
 
@@ -15,5 +18,43 @@ impl Window {
     pub fn new(app: &Application) -> Self {
         // Create new window
         Object::new(&[("application", app)]).expect("Failed to create Window")
+    }
+    fn add_actions(&self) {
+        let imp = imp::Window::from_instance(self);
+        let label = imp.label.get();
+
+        // Add stateful action "count" to `window` which takes an integer as parameter
+        let action_count =
+            SimpleAction::new_stateful("count", Some(&i32::static_variant_type()), &0.to_variant());
+        let label = imp.label.get();
+        action_count.connect_activate(clone!(@weak label => move |action, parameter| {
+            // Get state
+            let mut state = action
+            .state()
+            .expect("Could not get state.")
+            .get::<i32>()
+            .expect("The value needs to be of type `i32`.");
+
+            // Get parameter
+            let parameter = parameter
+                .expect("Could not get parameter.")
+                .get::<i32>()
+                .expect("The value needs to be of type `i32`.");
+
+            // Increase state by parameter and store state
+            state += parameter;
+            action.set_state(&state.to_variant());
+
+            // Update label with new state
+            label.set_label(&format!("Counter: {}", state));
+        }));
+        self.add_action(&action_count);
+
+        // Add action "quit" to `window` which takes no parameter
+        let action_quit = SimpleAction::new("quit", None);
+        action_quit.connect_activate(clone!(@weak self as self_ => move |_, _| {
+            self_.close();
+        }));
+        self.add_action(&action_quit);
     }
 }
