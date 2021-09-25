@@ -42,7 +42,7 @@ impl Window {
                 .get::<i32>()
                 .expect("The value needs to be of type `i32`.");
 
-            // Increase state by parameter and store state
+            // Increase state by parameter and save state
             state += parameter;
             action.set_state(&state.to_variant());
 

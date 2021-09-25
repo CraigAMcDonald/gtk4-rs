@@ -1,15 +1,17 @@
-use gio::SimpleAction;
-use glib::clone;
 use glib::subclass::InitializingObject;
+use gtk::glib;
 use gtk::prelude::*;
 use gtk::subclass::prelude::*;
-use gtk::{gio, glib};
-use gtk::{CompositeTemplate, Label};
+use gtk::{Button, CompositeTemplate, Label};
 
 // Object holding the state
 #[derive(CompositeTemplate, Default)]
 #[template(file = "window.ui")]
 pub struct Window {
+    #[template_child]
+    pub gtk_box: TemplateChild<gtk::Box>,
+    #[template_child]
+    pub button: TemplateChild<Button>,
     #[template_child]
     pub label: TemplateChild<Label>,
 }

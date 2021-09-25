@@ -1,10 +1,8 @@
-use gio::SimpleAction;
-use glib::clone;
 use glib::subclass::InitializingObject;
 use gtk::prelude::*;
-use gtk::prelude::*;
+
+use gtk::glib;
 use gtk::subclass::prelude::*;
-use gtk::{gio, glib};
 use gtk::{CompositeTemplate, Label};
 
 // Object holding the state
