@@ -27,6 +27,7 @@ fn build_ui(app: &Application) {
     // Create a window and set the title
     let window = ApplicationWindow::builder()
         .application(app)
+        .width_request(360)
         .title("My GTK App")
         .build();
 

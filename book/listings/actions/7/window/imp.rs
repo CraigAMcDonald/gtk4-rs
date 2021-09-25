@@ -3,13 +3,16 @@ use glib::clone;
 use glib::subclass::InitializingObject;
 use gtk::prelude::*;
 use gtk::subclass::prelude::*;
-use gtk::CompositeTemplate;
 use gtk::{gio, glib};
+use gtk::{CompositeTemplate, Label};
 
 // Object holding the state
 #[derive(CompositeTemplate, Default)]
 #[template(file = "window.ui")]
-pub struct Window;
+pub struct Window {
+    #[template_child]
+    pub label: TemplateChild<Label>,
+}
 
 // The central trait for subclassing a GObject
 #[glib::object_subclass]
@@ -35,11 +38,32 @@ impl ObjectImpl for Window {
         // Call "constructed" on parent
         self.parent_constructed(obj);
 
-        // Add action "quit" to `window` which takes no parameters
-        let action_quit = SimpleAction::new("quit", None);
-        action_quit.connect_activate(clone!(@weak obj => move |_, _| {
-            obj.close();
+        let action_quit =
+            SimpleAction::new_stateful("count", Some(&i32::static_variant_type()), &0.to_variant());
+
+        let label = self.label.get();
+        action_quit.connect_activate(clone!(@weak label => move |action, parameter| {
+            // Get state
+            let mut state = action
+            .state()
+            .expect("Could not get state.")
+            .get::<i32>()
+            .expect("The value needs to be of type `i32`.");
+
+            // Get parameter
+            let parameter = parameter
+                .expect("Could not get parameter.")
+                .get::<i32>()
+                .expect("The value needs to be of type `i32`.");
+
+            // Increase state by parameter and store state
+            state += parameter;
+            action.set_state(&state.to_variant());
+
+            // Update label with new state
+            label.set_label(&format!("Counter: {}", state));
         }));
+
         obj.add_action(&action_quit);
     }
 }

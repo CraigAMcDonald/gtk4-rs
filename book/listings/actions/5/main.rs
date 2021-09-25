@@ -23,6 +23,7 @@ fn build_ui(app: &Application) {
     let window = ApplicationWindow::builder()
         .application(app)
         .title("My GTK App")
+        .width_request(360)
         .build();
 
     let label = Label::builder().label(&format!("Counter: {}", 0)).build();
