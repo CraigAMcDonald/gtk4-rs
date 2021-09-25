@@ -38,11 +38,11 @@ impl ObjectImpl for Window {
         // Call "constructed" on parent
         self.parent_constructed(obj);
 
-        let action_quit =
+        // Add stateful action "count" to `window` which takes an integer as parameter
+        let action_count =
             SimpleAction::new_stateful("count", Some(&i32::static_variant_type()), &0.to_variant());
-
         let label = self.label.get();
-        action_quit.connect_activate(clone!(@weak label => move |action, parameter| {
+        action_count.connect_activate(clone!(@weak label => move |action, parameter| {
             // Get state
             let mut state = action
             .state()
@@ -63,8 +63,7 @@ impl ObjectImpl for Window {
             // Update label with new state
             label.set_label(&format!("Counter: {}", state));
         }));
-
-        obj.add_action(&action_quit);
+        obj.add_action(&action_count);
     }
 }
 // ANCHOR_END: object_impl

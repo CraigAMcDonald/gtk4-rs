@@ -2,15 +2,26 @@
 <interface>
   <menu id="main-menu">
     <item>
-      <attribute name="label" translatable="yes">_Increase counter by 10</attribute>
-      <attribute name="action">win.count</attribute>
-      <attribute name="target" type="i">10</attribute>
+      <attribute name="label" translatable="yes">_Close window</attribute>
+      <attribute name="action">win.quit</attribute>
     </item>
-    <!-- <item>
-      <attribute name="label" translatable="yes">_Decrease counter by 2</attribute>
-      <attribute name="action">win.count</attribute>
-      <attribute name="target">2</attribute>
-    </item> -->
+    <item>
+      <attribute name="label" translatable="yes">_Toggle button</attribute>
+      <attribute name="action">win.toggle-button</attribute>
+    </item>
+    <section>
+      <attribute name="label" translatable="yes">Orientation</attribute>
+      <item>
+        <attribute name="label" translatable="yes">_Horizontal</attribute>
+        <attribute name="action">win.orientation</attribute>
+        <attribute name="target" type="s">'Horizontal'</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">_Vertical</attribute>
+        <attribute name="action">win.orientation</attribute>
+        <attribute name="target" type="s">'Vertical'</attribute>
+      </item>
+    </section>
   </menu>
   <template class="MyGtkAppWindow" parent="GtkApplicationWindow">
     <property name="title">My GTK App</property>
