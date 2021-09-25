@@ -95,4 +95,7 @@ The action can be added within `constructed`.
 ## Menus
 
 
+(Basically that part https://docs.gtk.org/gio/class.MenuModel.html#stateless)
+
+
 ## Shortcut Window
