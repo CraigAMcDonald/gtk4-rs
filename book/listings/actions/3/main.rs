@@ -23,7 +23,6 @@ fn build_ui(app: &Application) {
     let window = ApplicationWindow::builder()
         .application(app)
         .title("My GTK App")
-        .width_request(360)
         .build();
 
     // Add action "quit" to `window` which takes no parameter
