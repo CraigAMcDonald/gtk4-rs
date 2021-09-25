@@ -104,4 +104,6 @@ We add the action within the newly created method `add_actions`.
 (Basically that part https://docs.gtk.org/gio/class.MenuModel.html#stateless)
 
 
+Also mention settings
+
 ## Shortcut Window
