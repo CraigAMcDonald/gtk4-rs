@@ -662,7 +662,7 @@ help: to force the closure to take ownership of `number` (and any other referenc
    |  
 </code></pre>
 <p>Our closure only borrows <code>number</code>.
-Signal handlers in GTK require <code>static'</code> lifetimes for their references, so we cannot borrow a variable that only lives for the scope of the function <code>build_ui</code>.
+Signal handlers in GTK require <code>'static</code> lifetimes for their references, so we cannot borrow a variable that only lives for the scope of the function <code>build_ui</code>.
 The compiler also suggests how to fix this.
 By adding the <code>move</code> keyword in front of the closure, <code>number</code> will be moved into the closure.</p>
 <pre><code class="language-rust  no_run compile_fail"><span class="boring">use gtk::prelude::*;
@@ -3299,7 +3299,7 @@ With <a href="https://doc.rust-lang.org/stable/std/sync/struct.OnceLock.html"><c
 </span><span class="boring">    // Present window
 </span><span class="boring">    window.present();
 </span><span class="boring">}</span></code></pre>
-<p>In the button callback we can now spawn the <code>requwest</code> <code>async</code> block with <code>tokio</code> rather than with <code>glib</code>.</p>
+<p>In the button callback we can now spawn the <code>reqwest</code> <code>async</code> block with <code>tokio</code> rather than with <code>glib</code>.</p>
 <p>Filename: <a class=file-link href="https://github.com/gtk-rs/gtk4-rs/blob/master/book/listings/main_event_loop/9/main.rs">listings/main_event_loop/9/main.rs</a></p>
 <pre><code class="language-rust"><span class="boring">use std::sync::OnceLock;
 </span><span class="boring">
@@ -3980,7 +3980,7 @@ The following figure demonstrates how this works in practice.</p>
 <p>We start by defining and filling up our model.
 The model is an instance of <a href="https://gtk-rs.org/gtk-rs-core/stable/latest/docs/gio/struct.ListStore.html"><code>gio::ListStore</code></a>.
 The main limitation here is that <code>gio::ListStore</code> only accepts GObjects.
-So let's create a custom GObject <code>IntegerObject</code> that which is initialized with a number.</p>
+So let's create a custom GObject <code>IntegerObject</code> that is initialized with a number.</p>
 <p>Filename: <a class=file-link href="https://github.com/gtk-rs/gtk4-rs/blob/master/book/listings/list_widgets/2/integer_object/mod.rs">listings/list_widgets/2/integer_object/mod.rs</a></p>
 <pre><code class="language-rust"><span class="boring">mod imp;
 </span><span class="boring">

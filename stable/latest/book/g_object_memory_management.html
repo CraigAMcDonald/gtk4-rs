@@ -246,7 +246,7 @@ help: to force the closure to take ownership of `number` (and any other referenc
    |  
 </code></pre>
 <p>Our closure only borrows <code>number</code>.
-Signal handlers in GTK require <code>static'</code> lifetimes for their references, so we cannot borrow a variable that only lives for the scope of the function <code>build_ui</code>.
+Signal handlers in GTK require <code>'static</code> lifetimes for their references, so we cannot borrow a variable that only lives for the scope of the function <code>build_ui</code>.
 The compiler also suggests how to fix this.
 By adding the <code>move</code> keyword in front of the closure, <code>number</code> will be moved into the closure.</p>
 <pre><code class="language-rust  no_run compile_fail"><span class="boring">use gtk::prelude::*;
