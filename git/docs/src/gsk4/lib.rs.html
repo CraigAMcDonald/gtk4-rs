@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gsk4/src/lib.rs`."><title>lib.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-46f98efaafac5295.ttf.woff2,FiraSans-Regular-018c141bf0843ffd.woff2,FiraSans-Medium-8f9a781e4970d388.woff2,SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2,SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-081576b923113409.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gsk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.79.0-nightly (aed2187d5 2024-04-27)" data-channel="nightly" data-search-js="search-bf21c90c8c1d92b1.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-e32f0c247825364d.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-20a3ad099b048cf2.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-09095024cf37855e.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gsk4/src/lib.rs`."><title>lib.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-46f98efaafac5295.ttf.woff2,FiraSans-Regular-018c141bf0843ffd.woff2,FiraSans-Medium-8f9a781e4970d388.woff2,SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2,SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-dd39b87e5fcfba68.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gsk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.81.0-nightly (e9e6e2e44 2024-06-28)" data-channel="nightly" data-search-js="search-0fe7219eb170c82e.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-118b08c4c78b968e.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-20a3ad099b048cf2.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-df360f571f6edeae.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,7 @@
 </script>
 
 
-<nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer"></div><main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../gsk4/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Type ‘S’ or ‘/’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings">Settings</a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer"></div><main><rustdoc-search></rustdoc-search><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -173,6 +173,7 @@
 <a href="#100" id="100">100</a>
 <a href="#101" id="101">101</a>
 <a href="#102" id="102">102</a>
+<a href="#103" id="103">103</a>
 </pre></div><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
 </span><span class="attr">#![cfg_attr(docsrs, feature(doc_cfg))]
@@ -180,10 +181,10 @@
 #![doc = <span class="macro">include_str!</span>(<span class="string">"../README.md"</span>)]
 
 </span><span class="kw">pub use </span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/cairo/index.html">cairo</a>;
-<span class="kw">pub use </span><a href="../../gsk4_sys/index.html">ffi</a>;
 <span class="kw">pub use </span><a href="../../gdk4/index.html">gdk</a>;
 <span class="kw">pub use </span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/index.html">glib</a>;
 <span class="kw">pub use </span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/graphene/index.html">graphene</a>;
+<span class="kw">pub use </span><a href="../../gsk4_sys/index.html">gsk4_sys</a> <span class="kw">as </span>ffi;
 <span class="kw">pub use </span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/pango/index.html">pango</a>;
 
 <span class="comment">// GSK 4 has no runtime to initialize
@@ -198,30 +199,31 @@
 
 <span class="attr">#[allow(clippy::derived_hash_with_manual_eq)]
 #[allow(clippy::too_many_arguments)]
+#[allow(unused_imports)]
 </span><span class="kw">mod </span><a href="auto/mod.rs.html#5-215">auto</a>;
 
 <span class="kw">pub mod </span><a href="builders.rs.html#4-9">builders</a>;
 <span class="kw">pub mod </span><a href="prelude.rs.html#4-9">prelude</a>;
-<span class="kw">pub use </span><a href="#26">auto</a>::<span class="kw-2">*</span>;
+<span class="kw">pub use </span><a href="#27">auto</a>::<span class="kw-2">*</span>;
 
 <span class="attr">#[macro_use]
 </span><span class="kw">mod </span><a href="render_node.rs.html#3-238">render_node</a>;
-<span class="kw">mod </span><a href="rounded_rect.rs.html#3-215">rounded_rect</a>;
-<span class="kw">mod </span><a href="shadow.rs.html#3-58">shadow</a>;
+<span class="kw">mod </span><a href="rounded_rect.rs.html#3-216">rounded_rect</a>;
+<span class="kw">mod </span><a href="shadow.rs.html#3-59">shadow</a>;
 
 <span class="comment">// Render node types
-</span><span class="kw">mod </span><a href="blend_node.rs.html#3-15">blend_node</a>;
+</span><span class="kw">mod </span><a href="blend_node.rs.html#3-19">blend_node</a>;
 <span class="kw">mod </span><a href="blur_node.rs.html#3-14">blur_node</a>;
 <span class="kw">mod </span><a href="border_node.rs.html#3-77">border_node</a>;
-<span class="kw">mod </span><a href="cairo_node.rs.html#3-14">cairo_node</a>;
+<span class="kw">mod </span><a href="cairo_node.rs.html#3-18">cairo_node</a>;
 <span class="kw">mod </span><a href="clip_node.rs.html#3-14">clip_node</a>;
 <span class="kw">mod </span><a href="color_matrix_node.rs.html#3-19">color_matrix_node</a>;
-<span class="kw">mod </span><a href="color_node.rs.html#3-13">color_node</a>;
-<span class="kw">mod </span><a href="color_stop.rs.html#3-108">color_stop</a>;
+<span class="kw">mod </span><a href="color_node.rs.html#3-17">color_node</a>;
+<span class="kw">mod </span><a href="color_stop.rs.html#3-109">color_stop</a>;
 <span class="kw">mod </span><a href="conic_gradient_node.rs.html#3-33">conic_gradient_node</a>;
 <span class="kw">mod </span><a href="container_node.rs.html#3-40">container_node</a>;
 <span class="kw">mod </span><a href="cross_fade_node.rs.html#3-19">cross_fade_node</a>;
-<span class="kw">mod </span><a href="debug_node.rs.html#3-14">debug_node</a>;
+<span class="kw">mod </span><a href="debug_node.rs.html#3-18">debug_node</a>;
 <span class="attr">#[cfg(feature = <span class="string">"v4_14"</span>)]
 #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_14"</span>)))]
 </span><span class="kw">mod </span><a href="fill_node.rs.html#3-15">fill_node</a>;
@@ -248,7 +250,7 @@
 #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_14"</span>)))]
 </span><span class="kw">mod </span><a href="path_point.rs.html#3-63">path_point</a>;
 <span class="kw">mod </span><a href="radial_gradient_node.rs.html#3-23">radial_gradient_node</a>;
-<span class="kw">mod </span><a href="repeat_node.rs.html#3-14">repeat_node</a>;
+<span class="kw">mod </span><a href="repeat_node.rs.html#3-18">repeat_node</a>;
 <span class="kw">mod </span><a href="repeating_linear_gradient_node.rs.html#3-15">repeating_linear_gradient_node</a>;
 <span class="kw">mod </span><a href="repeating_radial_gradient_node.rs.html#3-15">repeating_radial_gradient_node</a>;
 <span class="kw">mod </span><a href="rounded_clip_node.rs.html#3-18">rounded_clip_node</a>;
@@ -258,7 +260,7 @@
 </span><span class="kw">mod </span><a href="stroke.rs.html#3-57">stroke</a>;
 <span class="attr">#[cfg(feature = <span class="string">"v4_14"</span>)]
 #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_14"</span>)))]
-</span><span class="kw">mod </span><a href="stroke_node.rs.html#3-15">stroke_node</a>;
+</span><span class="kw">mod </span><a href="stroke_node.rs.html#3-19">stroke_node</a>;
 <span class="kw">mod </span><a href="text_node.rs.html#3-31">text_node</a>;
 <span class="kw">mod </span><a href="texture_node.rs.html#3-17">texture_node</a>;
 <span class="attr">#[cfg(feature = <span class="string">"v4_10"</span>)]
@@ -267,12 +269,12 @@
 <span class="kw">mod </span><a href="transform.rs.html#3-254">transform</a>;
 <span class="kw">mod </span><a href="transform_node.rs.html#3-18">transform_node</a>;
 
-<span class="kw">pub use </span><a href="color_stop.rs.html#8-12">color_stop::ColorStop</a>;
+<span class="kw">pub use </span><a href="color_stop.rs.html#9-13">color_stop::ColorStop</a>;
 <span class="attr">#[cfg(feature = <span class="string">"v4_2"</span>)]
 #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_2"</span>)))]
 #[cfg_attr(feature = <span class="string">"v4_4"</span>, deprecated = <span class="string">"Since 4.4"</span>)]
 </span><span class="kw">pub use </span><a href="ngl_renderer.rs.html#9-21">ngl_renderer::NglRenderer</a>;
 <span class="kw">pub use </span><a href="parse_location.rs.html#5-9">parse_location::ParseLocation</a>;
-<span class="kw">pub use </span><a href="rounded_rect.rs.html#8-24">rounded_rect::RoundedRect</a>;
-<span class="kw">pub use </span><a href="shadow.rs.html#8-12">shadow::Shadow</a>;
+<span class="kw">pub use </span><a href="rounded_rect.rs.html#9-25">rounded_rect::RoundedRect</a>;
+<span class="kw">pub use </span><a href="shadow.rs.html#9-13">shadow::Shadow</a>;
 </code></pre></div></section></main></body></html>

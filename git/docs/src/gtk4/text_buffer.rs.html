@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/text_buffer.rs`."><title>text_buffer.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-46f98efaafac5295.ttf.woff2,FiraSans-Regular-018c141bf0843ffd.woff2,FiraSans-Medium-8f9a781e4970d388.woff2,SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2,SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-081576b923113409.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.79.0-nightly (aed2187d5 2024-04-27)" data-channel="nightly" data-search-js="search-bf21c90c8c1d92b1.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-e32f0c247825364d.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-20a3ad099b048cf2.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-09095024cf37855e.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/text_buffer.rs`."><title>text_buffer.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-46f98efaafac5295.ttf.woff2,FiraSans-Regular-018c141bf0843ffd.woff2,FiraSans-Medium-8f9a781e4970d388.woff2,SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2,SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-dd39b87e5fcfba68.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.81.0-nightly (e9e6e2e44 2024-06-28)" data-channel="nightly" data-search-js="search-0fe7219eb170c82e.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-118b08c4c78b968e.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-20a3ad099b048cf2.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-df360f571f6edeae.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,7 @@
 </script>
 
 
-<nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer"></div><main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../gtk4/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Type ‘S’ or ‘/’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings">Settings</a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer"></div><main><rustdoc-search></rustdoc-search><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -254,6 +254,8 @@
 <a href="#181" id="181">181</a>
 <a href="#182" id="182">182</a>
 <a href="#183" id="183">183</a>
+<a href="#184" id="184">184</a>
+<a href="#185" id="185">185</a>
 </pre></div><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
 </span><span class="kw">use </span>std::{<a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html">boxed::Box</a> <span class="kw">as </span>Box_, <a href="https://doc.rust-lang.org/nightly/core/intrinsics/fn.transmute.html">mem::transmute</a>, <a href="https://doc.rust-lang.org/nightly/alloc/slice/index.html">slice</a>, <a href="https://doc.rust-lang.org/nightly/alloc/str/index.html">str</a>};
@@ -264,7 +266,7 @@
 };
 <span class="kw">use </span>libc::{c_char, c_int};
 
-<span class="kw">use crate</span>::{<a href="lib.rs.html#138">prelude</a>::<span class="kw-2">*</span>, <a href="auto/text_buffer.rs.html#13-267">TextBuffer</a>, <a href="auto/text_iter.rs.html#8-23">TextIter</a>, <a href="auto/text_tag.rs.html#13-549">TextTag</a>};
+<span class="kw">use crate</span>::{<a href="../../gtk4_sys/index.html">ffi</a>, <a href="lib.rs.html#138">prelude</a>::<span class="kw-2">*</span>, <a href="auto/text_buffer.rs.html#13-267">TextBuffer</a>, <a href="auto/text_iter.rs.html#8-23">TextIter</a>, <a href="auto/text_tag.rs.html#13-549">TextTag</a>};
 
 <span class="kw">mod </span>sealed {
     <span class="kw">pub trait </span>Sealed {}
@@ -334,8 +336,8 @@
     </span><span class="attr">#[doc(alias = <span class="string">"gtk_text_buffer_insert_with_tags"</span>)]
     </span><span class="kw">fn </span>insert_with_tags(<span class="kw-2">&amp;</span><span class="self">self</span>, iter: <span class="kw-2">&amp;mut </span><a href="auto/text_iter.rs.html#8-23">TextIter</a>, text: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, tags: <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span><a href="auto/text_tag.rs.html#13-549">TextTag</a>]) {
         <span class="kw">let </span>start_offset = <a href="#79">iter</a>.<a href="auto/text_iter.rs.html#1241-1243">offset</a>();
-        <a class="self" href="#79">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html#tymethod.as_ref">as_ref</a>().<a href="auto/text_buffer.rs.html#1369-1379">insert</a>(<a href="#79">iter</a>, <a href="#79">text</a>);
-        <span class="kw">let </span>start_iter = <a class="self" href="#79">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html#tymethod.as_ref">as_ref</a>().<a href="auto/text_buffer.rs.html#1094-1104">iter_at_offset</a>(<a href="#80">start_offset</a>);
+        <a class="self" href="#79">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html#tymethod.as_ref">as_ref</a>().<a href="auto/text_buffer.rs.html#1374-1384">insert</a>(<a href="#79">iter</a>, <a href="#79">text</a>);
+        <span class="kw">let </span>start_iter = <a class="self" href="#79">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html#tymethod.as_ref">as_ref</a>().<a href="auto/text_buffer.rs.html#1098-1108">iter_at_offset</a>(<a href="#80">start_offset</a>);
         <a href="#79">tags</a>.<a href="https://doc.rust-lang.org/nightly/core/foreigntype.slice.html#method.iter">iter</a>().<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html#tymethod.for_each">for_each</a>(|tag| {
             <a class="self" href="#79">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html#tymethod.as_ref">as_ref</a>().<a href="auto/text_buffer.rs.html#411-420">apply_tag</a>(<span class="kw-2">&amp;</span>(<span class="kw-2">*</span><a href="#83">tag</a>).<a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">clone</a>(), <span class="kw-2">&amp;</span><a href="#82">start_iter</a>, <a href="#79">iter</a>);
         });
@@ -357,9 +359,9 @@
     </span><span class="attr">#[doc(alias = <span class="string">"gtk_text_buffer_insert_with_tags_by_name"</span>)]
     </span><span class="kw">fn </span>insert_with_tags_by_name(<span class="kw-2">&amp;</span><span class="self">self</span>, iter: <span class="kw-2">&amp;mut </span><a href="auto/text_iter.rs.html#8-23">TextIter</a>, text: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>, tags_names: <span class="kw-2">&amp;</span>[<span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>]) {
         <span class="kw">let </span>start_offset = <a href="#102">iter</a>.<a href="auto/text_iter.rs.html#1241-1243">offset</a>();
-        <a class="self" href="#102">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html#tymethod.as_ref">as_ref</a>().<a href="auto/text_buffer.rs.html#1369-1379">insert</a>(<a href="#102">iter</a>, <a href="#102">text</a>);
-        <span class="kw">let </span>start_iter = <a class="self" href="#102">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html#tymethod.as_ref">as_ref</a>().<a href="auto/text_buffer.rs.html#1094-1104">iter_at_offset</a>(<a href="#103">start_offset</a>);
-        <span class="kw">let </span>tag_table = <a class="self" href="#102">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html#tymethod.as_ref">as_ref</a>().<a href="auto/text_buffer.rs.html#1315-1321">tag_table</a>();
+        <a class="self" href="#102">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html#tymethod.as_ref">as_ref</a>().<a href="auto/text_buffer.rs.html#1374-1384">insert</a>(<a href="#102">iter</a>, <a href="#102">text</a>);
+        <span class="kw">let </span>start_iter = <a class="self" href="#102">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html#tymethod.as_ref">as_ref</a>().<a href="auto/text_buffer.rs.html#1098-1108">iter_at_offset</a>(<a href="#103">start_offset</a>);
+        <span class="kw">let </span>tag_table = <a class="self" href="#102">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html#tymethod.as_ref">as_ref</a>().<a href="auto/text_buffer.rs.html#1320-1326">tag_table</a>();
         <a href="#102">tags_names</a>.<a href="https://doc.rust-lang.org/nightly/core/foreigntype.slice.html#method.iter">iter</a>().<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html#tymethod.for_each">for_each</a>(|tag_name| {
             <span class="kw">if let </span><span class="prelude-val">Some</span>(tag) = <a href="#106">tag_table</a>.<a href="auto/text_tag_table.rs.html#153-160">lookup</a>(<a href="#107">tag_name</a>) {
                 <a class="self" href="#102">self</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html#tymethod.as_ref">as_ref</a>().<a href="auto/text_buffer.rs.html#411-420">apply_tag</a>(<span class="kw-2">&amp;</span><a href="#108">tag</a>, <span class="kw-2">&amp;</span><a href="#105">start_iter</a>, <a href="#102">iter</a>);
@@ -421,19 +423,21 @@
             <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/signal/fn.connect_raw.html">connect_raw</a>(
                 <a class="self" href="#134">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0 </span><span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
                 <span class="string">b"insert-text\0"</span>.<a href="https://doc.rust-lang.org/nightly/core/foreigntype.slice.html#method.as_ptr">as_ptr</a>() <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
-                <span class="prelude-val">Some</span>(<a href="https://doc.rust-lang.org/nightly/core/intrinsics/fn.transmute.html">transmute</a>(insert_text_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>)),
+                <span class="prelude-val">Some</span>(transmute::&lt;<a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>, <span class="kw">unsafe extern </span><span class="string">"C" </span><span class="kw">fn</span>()&gt;(
+                    insert_text_trampoline::&lt;<span class="self">Self</span>, F&gt; <span class="kw">as </span><a href="https://doc.rust-lang.org/nightly/std/primitive.usize.html">usize</a>,
+                )),
                 <a href="https://doc.rust-lang.org/nightly/alloc/boxed/struct.Box.html#method.into_raw">Box_::into_raw</a>(<a href="#164">f</a>),
             )
         }
     }
 }
 
-<span class="kw">impl</span>&lt;O: IsA&lt;<a href="auto/text_buffer.rs.html#13-267">TextBuffer</a>&gt;&gt; <a href="#21-173">TextBufferExtManual</a> <span class="kw">for </span>O {}
+<span class="kw">impl</span>&lt;O: IsA&lt;<a href="auto/text_buffer.rs.html#13-267">TextBuffer</a>&gt;&gt; <a href="#21-175">TextBufferExtManual</a> <span class="kw">for </span>O {}
 
 <span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Write.html">std::fmt::Write</a> <span class="kw">for </span><a href="auto/text_buffer.rs.html#13-267">TextBuffer</a> {
     <span class="kw">fn </span>write_str(<span class="kw-2">&amp;mut </span><span class="self">self</span>, s: <span class="kw-2">&amp;</span><a href="https://doc.rust-lang.org/nightly/std/primitive.str.html">str</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html">std::fmt::Result</a> {
-        <span class="kw">let </span><span class="kw-2">mut </span>iter = <a class="self" href="#178">self</a>.<a href="auto/text_buffer.rs.html#881-890">end_iter</a>();
-        <a class="self" href="#178">self</a>.<a href="auto/text_buffer.rs.html#1369-1379">insert</a>(<span class="kw-2">&amp;mut </span><a href="#179">iter</a>, <a href="#178">s</a>);
+        <span class="kw">let </span><span class="kw-2">mut </span>iter = <a class="self" href="#180">self</a>.<a href="auto/text_buffer.rs.html#884-893">end_iter</a>();
+        <a class="self" href="#180">self</a>.<a href="auto/text_buffer.rs.html#1374-1384">insert</a>(<span class="kw-2">&amp;mut </span><a href="#181">iter</a>, <a href="#180">s</a>);
         <span class="prelude-val">Ok</span>(())
     }
 }

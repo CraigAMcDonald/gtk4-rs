@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/lib.rs`."><title>lib.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-46f98efaafac5295.ttf.woff2,FiraSans-Regular-018c141bf0843ffd.woff2,FiraSans-Medium-8f9a781e4970d388.woff2,SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2,SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-081576b923113409.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.79.0-nightly (aed2187d5 2024-04-27)" data-channel="nightly" data-search-js="search-bf21c90c8c1d92b1.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-e32f0c247825364d.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-20a3ad099b048cf2.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-09095024cf37855e.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/lib.rs`."><title>lib.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-46f98efaafac5295.ttf.woff2,FiraSans-Regular-018c141bf0843ffd.woff2,FiraSans-Medium-8f9a781e4970d388.woff2,SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2,SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-dd39b87e5fcfba68.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.81.0-nightly (e9e6e2e44 2024-06-28)" data-channel="nightly" data-search-js="search-0fe7219eb170c82e.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-118b08c4c78b968e.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-20a3ad099b048cf2.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-df360f571f6edeae.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,7 @@
 </script>
 
 
-<nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer"></div><main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../gtk4/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Type ‘S’ or ‘/’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings">Settings</a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer"></div><main><rustdoc-search></rustdoc-search><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -325,6 +325,9 @@
 <a href="#252" id="252">252</a>
 <a href="#253" id="253">253</a>
 <a href="#254" id="254">254</a>
+<a href="#255" id="255">255</a>
+<a href="#256" id="256">256</a>
+<a href="#257" id="257">257</a>
 </pre></div><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
 </span><span class="attr">#![cfg_attr(docsrs, feature(doc_cfg))]
@@ -333,13 +336,13 @@
 
 </span><span class="comment">// Re-export gtk dependencies
 </span><span class="kw">pub use </span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/cairo/index.html">cairo</a>;
-<span class="kw">pub use </span><a href="../../gtk4_sys/index.html">ffi</a>;
 <span class="kw">pub use </span><a href="../../gdk4/index.html">gdk</a>;
 <span class="kw">pub use </span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/gdk_pixbuf/index.html">gdk_pixbuf</a>;
 <span class="kw">pub use </span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/gio/index.html">gio</a>;
 <span class="kw">pub use </span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/index.html">glib</a>;
 <span class="kw">pub use </span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/graphene/index.html">graphene</a>;
 <span class="kw">pub use </span><a href="../../gsk4/index.html">gsk</a>;
+<span class="kw">pub use </span><a href="../../gtk4_sys/index.html">gtk4_sys</a> <span class="kw">as </span>ffi;
 <span class="kw">pub use </span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/pango/index.html">pango</a>;
 
 <span class="attr">#[macro_use]
@@ -419,7 +422,7 @@
 </span><span class="kw">pub const </span><a href="../../gtk4/constant.TEXT_VIEW_PRIORITY_VALIDATE.html">TEXT_VIEW_PRIORITY_VALIDATE</a>: <a href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a> = <a href="../../gtk4_sys/constant.GTK_TEXT_VIEW_PRIORITY_VALIDATE.html">ffi::GTK_TEXT_VIEW_PRIORITY_VALIDATE</a> <span class="kw">as _</span>;
 
 <span class="attr">#[macro_use]
-</span><span class="kw">mod </span><a href="rt.rs.html#3-172">rt</a>;
+</span><span class="kw">mod </span><a href="rt.rs.html#3-173">rt</a>;
 
 <span class="attr">#[doc(hidden)]
 </span><span class="kw">pub fn </span>test_synced&lt;F, R&gt;(function: F) -&gt; R
@@ -432,7 +435,7 @@
     <span class="kw">let </span>pool = <a href="#104">TEST_THREAD_WORKER</a>.<a href="https://doc.rust-lang.org/nightly/std/sync/once_lock/struct.OnceLock.html#method.get_or_init">get_or_init</a>(|| {
         <span class="kw">let </span>pool = <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/thread_pool/struct.ThreadPool.html#method.exclusive">glib::ThreadPool::exclusive</a>(<span class="number">1</span>).<a href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html#method.unwrap">unwrap</a>();
         <a href="#106">pool</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/thread_pool/struct.ThreadPool.html#method.push">push</a>(<span class="kw">move </span>|| {
-            <a href="rt.rs.html#129-161"><span class="kw">crate</span>::init</a>().<a href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html#method.expect">expect</a>(<span class="string">"Tests failed to initialize gtk"</span>);
+            <a href="rt.rs.html#130-162"><span class="kw">crate</span>::init</a>().<a href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html#method.expect">expect</a>(<span class="string">"Tests failed to initialize gtk"</span>);
         })
         .<a href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html#method.expect">expect</a>(<span class="string">"Failed to schedule a test call"</span>);
         <a href="#106">pool</a>
@@ -454,12 +457,12 @@
 <span class="attr">#[allow(clippy::derived_hash_with_manual_eq)]
 #[allow(clippy::too_many_arguments)]
 #[allow(clippy::type_complexity)]
-</span><span class="kw">mod </span><a href="auto/mod.rs.html#5-1769">auto</a>;
+</span><span class="kw">mod </span><a href="auto/mod.rs.html#5-1785">auto</a>;
 
 <span class="attr">#[macro_use]
 </span><span class="kw">pub mod </span><a href="subclass/mod.rs.html#4-174">subclass</a>;
 <span class="attr">#[macro_use]
-</span><span class="kw">mod </span><a href="expression.rs.html#3-435">expression</a>;
+</span><span class="kw">mod </span><a href="expression.rs.html#3-444">expression</a>;
 
 <span class="kw">pub mod </span><a href="builders.rs.html#4-9">builders</a>;
 <span class="kw">pub mod </span><a href="prelude.rs.html#4-38">prelude</a>;
@@ -467,13 +470,16 @@
 <span class="kw">pub use </span><a href="#130">auto</a>::<span class="kw-2">*</span>;
 <span class="kw">pub use </span><a href="#95">rt</a>::<span class="kw-2">*</span>;
 
-<span class="kw">pub mod </span><a href="accessible.rs.html#3-365">accessible</a>;
+<span class="kw">pub mod </span><a href="accessible.rs.html#3-366">accessible</a>;
+<span class="attr">#[cfg(feature = <span class="string">"v4_14"</span>)]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_14"</span>)))]
+</span><span class="kw">mod </span><a href="accessible_text_range.rs.html#3-26">accessible_text_range</a>;
 <span class="kw">mod </span><a href="actionable.rs.html#3-39">actionable</a>;
 <span class="kw">mod </span><a href="application.rs.html#3-52">application</a>;
 <span class="kw">mod </span><a href="assistant.rs.html#3-20">assistant</a>;
 <span class="kw">mod </span><a href="bitset_iter.rs.html#3-173">bitset_iter</a>;
 <span class="kw">mod </span><a href="bookmark_list.rs.html#3-87">bookmark_list</a>;
-<span class="kw">mod </span><a href="border.rs.html#3-172">border</a>;
+<span class="kw">mod </span><a href="border.rs.html#3-173">border</a>;
 <span class="kw">mod </span><a href="builder.rs.html#3-116">builder</a>;
 <span class="kw">mod </span><a href="builder_cscope.rs.html#3-12">builder_cscope</a>;
 <span class="kw">mod </span><a href="builder_rust_scope.rs.html#3-353">builder_rust_scope</a>;
@@ -487,48 +493,48 @@
 <span class="kw">mod </span><a href="constant_expression.rs.html#3-72">constant_expression</a>;
 <span class="kw">mod </span><a href="constraint_guide.rs.html#3-84">constraint_guide</a>;
 <span class="kw">mod </span><a href="constraint_layout.rs.html#3-148">constraint_layout</a>;
-<span class="kw">mod </span><a href="css_location.rs.html#3-69">css_location</a>;
+<span class="kw">mod </span><a href="css_location.rs.html#3-70">css_location</a>;
 <span class="kw">mod </span><a href="custom_filter.rs.html#3-97">custom_filter</a>;
 <span class="kw">mod </span><a href="custom_sorter.rs.html#3-94">custom_sorter</a>;
-<span class="kw">mod </span><a href="dialog.rs.html#3-238">dialog</a>;
+<span class="kw">mod </span><a href="dialog.rs.html#3-242">dialog</a>;
 <span class="kw">mod </span><a href="directory_list.rs.html#3-98">directory_list</a>;
 <span class="kw">mod </span><a href="drawing_area.rs.html#3-87">drawing_area</a>;
 <span class="kw">mod </span><a href="drop_target.rs.html#3-118">drop_target</a>;
-<span class="kw">mod </span><a href="editable.rs.html#3-77">editable</a>;
+<span class="kw">mod </span><a href="editable.rs.html#3-79">editable</a>;
 <span class="kw">mod </span><a href="editable_label.rs.html#3-35">editable_label</a>;
-<span class="kw">mod </span><a href="entry.rs.html#3-33">entry</a>;
+<span class="kw">mod </span><a href="entry.rs.html#3-34">entry</a>;
 <span class="kw">mod </span><a href="entry_buffer.rs.html#3-150">entry_buffer</a>;
 <span class="kw">mod </span><a href="entry_completion.rs.html#3-33">entry_completion</a>;
 <span class="kw">mod </span><a href="enums.rs.html#3-228">enums</a>;
 <span class="kw">mod </span><a href="event_controller_key.rs.html#3-101">event_controller_key</a>;
-<span class="kw">mod </span><a href="expression_watch.rs.html#3-77">expression_watch</a>;
+<span class="kw">mod </span><a href="expression_watch.rs.html#3-79">expression_watch</a>;
 <span class="kw">mod </span><a href="file_chooser.rs.html#3-109">file_chooser</a>;
 <span class="kw">mod </span><a href="file_chooser_dialog.rs.html#3-60">file_chooser_dialog</a>;
 <span class="kw">mod </span><a href="flow_box.rs.html#3-91">flow_box</a>;
 <span class="kw">mod </span><a href="font_chooser.rs.html#3-32">font_chooser</a>;
 <span class="attr">#[cfg(feature = <span class="string">"v4_10"</span>)]
 #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_10"</span>)))]
-</span><span class="kw">mod </span><a href="font_dialog.rs.html#3-147">font_dialog</a>;
-<span class="kw">mod </span><a href="functions.rs.html#3-478">functions</a>;
+</span><span class="kw">mod </span><a href="font_dialog.rs.html#3-143">font_dialog</a>;
+<span class="kw">mod </span><a href="functions.rs.html#3-477">functions</a>;
 <span class="kw">mod </span><a href="gesture_stylus.rs.html#3-45">gesture_stylus</a>;
 <span class="kw">mod </span><a href="icon_theme.rs.html#3-38">icon_theme</a>;
 <span class="kw">mod </span><a href="im_context_simple.rs.html#3-20">im_context_simple</a>;
 <span class="kw">mod </span><a href="info_bar.rs.html#3-53">info_bar</a>;
 <span class="kw">mod </span><a href="keyval_trigger.rs.html#3-89">keyval_trigger</a>;
-<span class="kw">mod </span><a href="label.rs.html#3-22">label</a>;
+<span class="kw">mod </span><a href="label.rs.html#3-26">label</a>;
 <span class="kw">mod </span><a href="list_box.rs.html#3-98">list_box</a>;
 <span class="kw">mod </span><a href="list_store.rs.html#3-318">list_store</a>;
 <span class="kw">mod </span><a href="map_list_model.rs.html#3-33">map_list_model</a>;
 <span class="kw">mod </span><a href="media_stream.rs.html#3-40">media_stream</a>;
 <span class="kw">mod </span><a href="menu_button.rs.html#3-20">menu_button</a>;
-<span class="kw">mod </span><a href="message_dialog.rs.html#3-200">message_dialog</a>;
+<span class="kw">mod </span><a href="message_dialog.rs.html#3-202">message_dialog</a>;
 <span class="kw">mod </span><a href="mnemonic_trigger.rs.html#3-68">mnemonic_trigger</a>;
 <span class="kw">mod </span><a href="native_dialog.rs.html#3-97">native_dialog</a>;
 <span class="kw">mod </span><a href="notebook.rs.html#3-347">notebook</a>;
 <span class="kw">mod </span><a href="object_expression.rs.html#3-31">object_expression</a>;
-<span class="kw">mod </span><a href="overlay.rs.html#3-73">overlay</a>;
+<span class="kw">mod </span><a href="overlay.rs.html#3-75">overlay</a>;
 <span class="kw">mod </span><a href="pad_action_entry.rs.html#3-86">pad_action_entry</a>;
-<span class="kw">mod </span><a href="page_range.rs.html#3-40">page_range</a>;
+<span class="kw">mod </span><a href="page_range.rs.html#3-41">page_range</a>;
 <span class="kw">mod </span><a href="param_spec_expression.rs.html#3-299">param_spec_expression</a>;
 <span class="attr">#[cfg(target_os = <span class="string">"linux"</span>)]
 #[cfg_attr(docsrs, doc(cfg(target_os = <span class="string">"linux"</span>)))]
@@ -536,21 +542,21 @@
 <span class="kw">mod </span><a href="print_operation.rs.html#3-21">print_operation</a>;
 <span class="kw">mod </span><a href="print_settings.rs.html#3-22">print_settings</a>;
 <span class="kw">mod </span><a href="property_expression.rs.html#3-34">property_expression</a>;
-<span class="kw">mod </span><a href="recent_data.rs.html#3-115">recent_data</a>;
+<span class="kw">mod </span><a href="recent_data.rs.html#3-116">recent_data</a>;
 <span class="kw">mod </span><a href="requisition.rs.html#3-26">requisition</a>;
 <span class="kw">mod </span><a href="response_type.rs.html#3-197">response_type</a>;
 <span class="kw">mod </span><a href="scale.rs.html#3-29">scale</a>;
 <span class="kw">mod </span><a href="shortcut.rs.html#3-32">shortcut</a>;
 <span class="kw">mod </span><a href="shortcut_trigger.rs.html#3-51">shortcut_trigger</a>;
-<span class="kw">mod </span><a href="shortcuts_section.rs.html#3-42">shortcuts_section</a>;
+<span class="kw">mod </span><a href="shortcuts_section.rs.html#3-44">shortcuts_section</a>;
 <span class="kw">mod </span><a href="signal_list_item_factory.rs.html#3-118">signal_list_item_factory</a>;
 <span class="kw">mod </span><a href="snapshot.rs.html#3-86">snapshot</a>;
-<span class="kw">mod </span><a href="spin_button.rs.html#3-58">spin_button</a>;
+<span class="kw">mod </span><a href="spin_button.rs.html#3-60">spin_button</a>;
 <span class="kw">mod </span><a href="string_list.rs.html#3-74">string_list</a>;
 <span class="kw">mod </span><a href="string_object.rs.html#3-98">string_object</a>;
 <span class="kw">mod </span><a href="style_context.rs.html#3-63">style_context</a>;
-<span class="kw">mod </span><a href="text.rs.html#3-410">text</a>;
-<span class="kw">mod </span><a href="text_buffer.rs.html#3-183">text_buffer</a>;
+<span class="kw">mod </span><a href="text.rs.html#3-434">text</a>;
+<span class="kw">mod </span><a href="text_buffer.rs.html#3-185">text_buffer</a>;
 <span class="kw">mod </span><a href="tree_model.rs.html#3-72">tree_model</a>;
 <span class="kw">mod </span><a href="tree_model_filter.rs.html#3-97">tree_model_filter</a>;
 <span class="kw">mod </span><a href="tree_path.rs.html#3-35">tree_path</a>;
@@ -563,20 +569,20 @@
 <span class="kw">mod </span><a href="widget.rs.html#3-122">widget</a>;
 
 <span class="kw">pub use </span><a href="bitset_iter.rs.html#18">bitset_iter::BitsetIter</a>;
-<span class="kw">pub use </span><a href="border.rs.html#7-19">border::Border</a>;
+<span class="kw">pub use </span><a href="border.rs.html#8-20">border::Border</a>;
 <span class="kw">pub use </span><a href="builder_cscope.rs.html#5-12">builder_cscope::BuilderCScope</a>;
 <span class="kw">pub use </span><a href="builder_rust_scope.rs.html#7-41">builder_rust_scope::BuilderRustScope</a>;
-<span class="kw">pub use </span><a href="css_location.rs.html#7-10">css_location::CssLocation</a>;
+<span class="kw">pub use </span><a href="css_location.rs.html#8-11">css_location::CssLocation</a>;
 <span class="kw">pub use </span><a href="enums.rs.html#77-107">enums::Align</a>;
-<span class="kw">pub use </span><a href="expression_watch.rs.html#5-18">expression_watch::ExpressionWatch</a>;
-<span class="kw">pub use </span><a href="#185">functions</a>::<span class="kw-2">*</span>;
+<span class="kw">pub use </span><a href="expression_watch.rs.html#7-20">expression_watch::ExpressionWatch</a>;
+<span class="kw">pub use </span><a href="#188">functions</a>::<span class="kw-2">*</span>;
 <span class="kw">pub use </span><a href="keyval_trigger.rs.html#10-35">keyval_trigger::KeyvalTrigger</a>;
 <span class="kw">pub use </span><a href="mnemonic_trigger.rs.html#10-32">mnemonic_trigger::MnemonicTrigger</a>;
 <span class="kw">pub use </span><a href="pad_action_entry.rs.html#9-19">pad_action_entry::PadActionEntry</a>;
-<span class="kw">pub use </span><a href="page_range.rs.html#7-13">page_range::PageRange</a>;
-<span class="kw">pub use </span><a href="recent_data.rs.html#7-18">recent_data::RecentData</a>;
+<span class="kw">pub use </span><a href="page_range.rs.html#8-14">page_range::PageRange</a>;
+<span class="kw">pub use </span><a href="recent_data.rs.html#8-19">recent_data::RecentData</a>;
 <span class="kw">pub use </span><a href="response_type.rs.html#14-52">response_type::ResponseType</a>;
-<span class="kw">pub use </span><a href="subclass/widget.rs.html#1626-1631">subclass::widget::TemplateChild</a>;
+<span class="kw">pub use </span><a href="subclass/widget.rs.html#1636-1641">subclass::widget::TemplateChild</a>;
 <span class="kw">pub use </span><a href="tree_sortable.rs.html#12-16">tree_sortable::SortColumn</a>;
 <span class="kw">pub use </span><a href="widget.rs.html#96-99">widget::TickCallbackId</a>;
 </code></pre></div></section></main></body></html>

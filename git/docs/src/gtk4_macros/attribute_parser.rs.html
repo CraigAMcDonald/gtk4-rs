@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4-macros/src/attribute_parser.rs`."><title>attribute_parser.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-46f98efaafac5295.ttf.woff2,FiraSans-Regular-018c141bf0843ffd.woff2,FiraSans-Medium-8f9a781e4970d388.woff2,SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2,SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-081576b923113409.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gtk4_macros" data-themes="" data-resource-suffix="" data-rustdoc-version="1.79.0-nightly (aed2187d5 2024-04-27)" data-channel="nightly" data-search-js="search-bf21c90c8c1d92b1.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-e32f0c247825364d.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-20a3ad099b048cf2.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-09095024cf37855e.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4-macros/src/attribute_parser.rs`."><title>attribute_parser.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-46f98efaafac5295.ttf.woff2,FiraSans-Regular-018c141bf0843ffd.woff2,FiraSans-Medium-8f9a781e4970d388.woff2,SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2,SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-dd39b87e5fcfba68.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gtk4_macros" data-themes="" data-resource-suffix="" data-rustdoc-version="1.81.0-nightly (e9e6e2e44 2024-06-28)" data-channel="nightly" data-search-js="search-0fe7219eb170c82e.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-118b08c4c78b968e.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-20a3ad099b048cf2.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-df360f571f6edeae.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,7 @@
 </script>
 
 
-<nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer"></div><main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../gtk4_macros/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Type ‘S’ or ‘/’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings">Settings</a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer"></div><main><rustdoc-search></rustdoc-search><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -445,26 +445,26 @@
 <a href="#372" id="372">372</a>
 </pre></div><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
-</span><span class="kw">use </span><a href="https://docs.rs/proc-macro2/1.0.81/proc_macro2/struct.Span.html">proc_macro2::Span</a>;
+</span><span class="kw">use </span><a href="https://docs.rs/proc-macro2/1.0.85/proc_macro2/struct.Span.html">proc_macro2::Span</a>;
 <span class="kw">use </span><a href="https://docs.rs/quote/1.0.36/quote/to_tokens/trait.ToTokens.html">quote::ToTokens</a>;
 <span class="kw">use </span>syn::{
-    parse::{<a href="https://docs.rs/syn/2.0.60/syn/parse/trait.Parse.html">Parse</a>, <a href="https://docs.rs/syn/2.0.60/syn/parse/type.ParseStream.html">ParseStream</a>},
-    <a href="https://docs.rs/syn/2.0.60/syn/punctuated/struct.Punctuated.html">punctuated::Punctuated</a>,
-    <a href="https://docs.rs/syn/2.0.60/syn/attr/struct.Attribute.html">Attribute</a>, <a href="https://docs.rs/syn/2.0.60/syn/derive/struct.DeriveInput.html">DeriveInput</a>, <a href="https://docs.rs/syn/2.0.60/syn/error/struct.Error.html">Error</a>, <a href="https://docs.rs/syn/2.0.60/syn/data/struct.Field.html">Field</a>, <a href="https://docs.rs/syn/2.0.60/syn/data/enum.Fields.html">Fields</a>, Ident, LitBool, LitStr, <a href="https://docs.rs/syn/2.0.60/syn/attr/enum.Meta.html">Meta</a>, <span class="prelude-ty">Result</span>, <a href="https://docs.rs/syn/2.0.60/syn/macro.Token.html">Token</a>,
-    <a href="https://docs.rs/syn/2.0.60/syn/ty/enum.Type.html">Type</a>,
+    parse::{<a href="https://docs.rs/syn/2.0.66/syn/parse/trait.Parse.html">Parse</a>, <a href="https://docs.rs/syn/2.0.66/syn/parse/type.ParseStream.html">ParseStream</a>},
+    <a href="https://docs.rs/syn/2.0.66/syn/punctuated/struct.Punctuated.html">punctuated::Punctuated</a>,
+    <a href="https://docs.rs/syn/2.0.66/syn/attr/struct.Attribute.html">Attribute</a>, <a href="https://docs.rs/syn/2.0.66/syn/derive/struct.DeriveInput.html">DeriveInput</a>, <a href="https://docs.rs/syn/2.0.66/syn/error/struct.Error.html">Error</a>, <a href="https://docs.rs/syn/2.0.66/syn/data/struct.Field.html">Field</a>, <a href="https://docs.rs/syn/2.0.66/syn/data/enum.Fields.html">Fields</a>, Ident, LitBool, LitStr, <a href="https://docs.rs/syn/2.0.66/syn/attr/enum.Meta.html">Meta</a>, <span class="prelude-ty">Result</span>, <a href="https://docs.rs/syn/2.0.66/syn/macro.Token.html">Token</a>,
+    <a href="https://docs.rs/syn/2.0.66/syn/ty/enum.Type.html">Type</a>,
 };
 
 <span class="doccomment">/// Custom meta keywords.
 </span><span class="kw">mod </span>kw {
     <span class="comment">// `template` attribute.
-    </span><a class="macro" href="https://docs.rs/syn/2.0.60/syn/macro.custom_keyword.html">syn::custom_keyword!</a>(file);
-    <a class="macro" href="https://docs.rs/syn/2.0.60/syn/macro.custom_keyword.html">syn::custom_keyword!</a>(resource);
-    <a class="macro" href="https://docs.rs/syn/2.0.60/syn/macro.custom_keyword.html">syn::custom_keyword!</a>(string);
-    <a class="macro" href="https://docs.rs/syn/2.0.60/syn/macro.custom_keyword.html">syn::custom_keyword!</a>(allow_template_child_without_attribute);
+    </span><a class="macro" href="https://docs.rs/syn/2.0.66/syn/macro.custom_keyword.html">syn::custom_keyword!</a>(file);
+    <a class="macro" href="https://docs.rs/syn/2.0.66/syn/macro.custom_keyword.html">syn::custom_keyword!</a>(resource);
+    <a class="macro" href="https://docs.rs/syn/2.0.66/syn/macro.custom_keyword.html">syn::custom_keyword!</a>(string);
+    <a class="macro" href="https://docs.rs/syn/2.0.66/syn/macro.custom_keyword.html">syn::custom_keyword!</a>(allow_template_child_without_attribute);
 
     <span class="comment">// `template_child` attribute.
-    </span><a class="macro" href="https://docs.rs/syn/2.0.60/syn/macro.custom_keyword.html">syn::custom_keyword!</a>(id);
-    <a class="macro" href="https://docs.rs/syn/2.0.60/syn/macro.custom_keyword.html">syn::custom_keyword!</a>(internal);
+    </span><a class="macro" href="https://docs.rs/syn/2.0.66/syn/macro.custom_keyword.html">syn::custom_keyword!</a>(id);
+    <a class="macro" href="https://docs.rs/syn/2.0.66/syn/macro.custom_keyword.html">syn::custom_keyword!</a>(internal);
 }
 
 <span class="doccomment">/// The parsed `template` attribute.
@@ -473,8 +473,8 @@
     <span class="kw">pub </span>allow_template_child_without_attribute: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>,
 }
 
-<span class="kw">impl </span><a href="https://docs.rs/syn/2.0.60/syn/parse/trait.Parse.html">Parse</a> <span class="kw">for </span><a href="#26-29">Template</a> {
-    <span class="kw">fn </span>parse(input: <a href="https://docs.rs/syn/2.0.60/syn/parse/type.ParseStream.html">ParseStream</a>) -&gt; <span class="prelude-ty">Result</span>&lt;<span class="self">Self</span>&gt; {
+<span class="kw">impl </span><a href="https://docs.rs/syn/2.0.66/syn/parse/trait.Parse.html">Parse</a> <span class="kw">for </span><a href="#26-29">Template</a> {
+    <span class="kw">fn </span>parse(input: <a href="https://docs.rs/syn/2.0.66/syn/parse/type.ParseStream.html">ParseStream</a>) -&gt; <span class="prelude-ty">Result</span>&lt;<span class="self">Self</span>&gt; {
         <span class="kw">let </span><span class="kw-2">mut </span>source = <span class="prelude-val">None</span>;
         <span class="kw">let </span><span class="kw-2">mut </span>allow_template_child_without_attribute = <span class="bool-val">false</span>;
 
@@ -543,8 +543,8 @@
         }
 
         <span class="kw">let </span><span class="prelude-val">Some</span>(source) = <a href="#33">source</a> <span class="kw">else </span>{
-            <span class="kw">return </span><span class="prelude-val">Err</span>(<a href="https://docs.rs/syn/2.0.60/syn/error/struct.Error.html#method.new">Error::new</a>(
-                <a href="https://docs.rs/proc-macro2/1.0.81/proc_macro2/struct.Span.html#method.call_site">Span::call_site</a>(),
+            <span class="kw">return </span><span class="prelude-val">Err</span>(<a href="https://docs.rs/syn/2.0.66/syn/error/struct.Error.html#method.new">Error::new</a>(
+                <a href="https://docs.rs/proc-macro2/1.0.85/proc_macro2/struct.Span.html#method.call_site">Span::call_site</a>(),
                 <span class="string">"Invalid meta, specify one of 'file', 'resource', or 'string'"</span>,
             ));
         };
@@ -587,34 +587,34 @@
     </span>}
 }
 
-<span class="kw">pub fn </span>parse_template_source(input: <span class="kw-2">&amp;</span><a href="https://docs.rs/syn/2.0.60/syn/derive/struct.DeriveInput.html">DeriveInput</a>) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="#26-29">Template</a>&gt; {
+<span class="kw">pub fn </span>parse_template_source(input: <span class="kw-2">&amp;</span><a href="https://docs.rs/syn/2.0.66/syn/derive/struct.DeriveInput.html">DeriveInput</a>) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="#26-29">Template</a>&gt; {
     <span class="kw">let </span><span class="prelude-val">Some</span>(attr) = <a href="#145">input</a>
         .attrs
         .<a href="https://doc.rust-lang.org/nightly/core/foreigntype.slice.html#method.iter">iter</a>()
-        .<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html#tymethod.find">find</a>(|attr| <a href="#149">attr</a>.<a href="https://docs.rs/syn/2.0.60/syn/attr/struct.Attribute.html#method.path">path</a>().<a href="https://docs.rs/syn/2.0.60/syn/path/struct.Path.html#method.is_ident">is_ident</a>(<span class="string">"template"</span>))
+        .<a href="https://doc.rust-lang.org/nightly/core/iter/traits/iterator/trait.Iterator.html#tymethod.find">find</a>(|attr| <a href="#149">attr</a>.<a href="https://docs.rs/syn/2.0.66/syn/attr/struct.Attribute.html#method.path">path</a>().<a href="https://docs.rs/syn/2.0.66/syn/path/struct.Path.html#method.is_ident">is_ident</a>(<span class="string">"template"</span>))
     <span class="kw">else </span>{
-        <span class="kw">return </span><span class="prelude-val">Err</span>(<a href="https://docs.rs/syn/2.0.60/syn/error/struct.Error.html#method.new">Error::new</a>(
-            <a href="https://docs.rs/proc-macro2/1.0.81/proc_macro2/struct.Span.html#method.call_site">Span::call_site</a>(),
+        <span class="kw">return </span><span class="prelude-val">Err</span>(<a href="https://docs.rs/syn/2.0.66/syn/error/struct.Error.html#method.new">Error::new</a>(
+            <a href="https://docs.rs/proc-macro2/1.0.85/proc_macro2/struct.Span.html#method.call_site">Span::call_site</a>(),
             <span class="string">"Missing 'template' attribute"</span>,
         ));
     };
 
-    <a href="#146">attr</a>.<a href="https://docs.rs/syn/2.0.60/syn/attr/struct.Attribute.html#method.parse_args">parse_args</a>::&lt;<a href="#26-29">Template</a>&gt;()
+    <a href="#146">attr</a>.<a href="https://docs.rs/syn/2.0.66/syn/attr/struct.Attribute.html#method.parse_args">parse_args</a>::&lt;<a href="#26-29">Template</a>&gt;()
 }
 
 <span class="doccomment">/// An argument in a field attribute.
 </span><span class="kw">pub enum </span>FieldAttributeArg {
     <span class="attr">#[allow(dead_code)]
     </span><span class="comment">// The span is needed for xml_validation feature
-    </span>Id(<a href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html">String</a>, <a href="https://docs.rs/proc-macro2/1.0.81/proc_macro2/struct.Span.html">Span</a>),
+    </span>Id(<a href="https://doc.rust-lang.org/nightly/alloc/string/struct.String.html">String</a>, <a href="https://docs.rs/proc-macro2/1.0.85/proc_macro2/struct.Span.html">Span</a>),
     Internal(<a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>),
 }
 
 <span class="kw">impl </span><a href="#161-166">FieldAttributeArg</a> {
     <span class="kw">fn </span>from_template_child_meta(meta: <span class="kw-2">&amp;</span><a href="#219-228">TemplateChildAttributeMeta</a>) -&gt; <span class="self">Self </span>{
         <span class="kw">match </span><a href="#169">meta</a> {
-            <a href="#220-223">TemplateChildAttributeMeta::Id</a> { value, .. } =&gt; <a href="#164"><span class="self">Self</span>::Id</a>(<a href="#171">value</a>.<a href="https://docs.rs/syn/2.0.60/syn/lit/struct.LitStr.html#method.value">value</a>(), <a href="#171">value</a>.<a href="https://docs.rs/syn/2.0.60/syn/lit/struct.LitStr.html#method.span">span</a>()),
-            <a href="#224-227">TemplateChildAttributeMeta::Internal</a> { value, .. } =&gt; <a href="#165"><span class="self">Self</span>::Internal</a>(<a href="#172">value</a>.<a href="https://docs.rs/syn/2.0.60/syn/lit/struct.LitBool.html#method.value">value</a>()),
+            <a href="#220-223">TemplateChildAttributeMeta::Id</a> { value, .. } =&gt; <a href="#164"><span class="self">Self</span>::Id</a>(<a href="#171">value</a>.<a href="https://docs.rs/syn/2.0.66/syn/lit/struct.LitStr.html#method.value">value</a>(), <a href="#171">value</a>.<a href="https://docs.rs/syn/2.0.66/syn/lit/struct.LitStr.html#method.span">span</a>()),
+            <a href="#224-227">TemplateChildAttributeMeta::Internal</a> { value, .. } =&gt; <a href="#165"><span class="self">Self</span>::Internal</a>(<a href="#172">value</a>.<a href="https://docs.rs/syn/2.0.66/syn/lit/struct.LitBool.html#method.value">value</a>()),
         }
     }
 }
@@ -633,8 +633,8 @@
 
 <span class="doccomment">/// A field with an attribute.
 </span><span class="kw">pub struct </span>AttributedField {
-    <span class="kw">pub </span>ident: <a href="https://docs.rs/proc-macro2/1.0.81/proc_macro2/struct.Ident.html">Ident</a>,
-    <span class="kw">pub </span>ty: <a href="https://docs.rs/syn/2.0.60/syn/ty/enum.Type.html">Type</a>,
+    <span class="kw">pub </span>ident: <a href="https://docs.rs/proc-macro2/1.0.85/proc_macro2/struct.Ident.html">Ident</a>,
+    <span class="kw">pub </span>ty: <a href="https://docs.rs/syn/2.0.66/syn/ty/enum.Type.html">Type</a>,
     <span class="kw">pub </span>attr: <a href="#184-187">FieldAttribute</a>,
 }
 
@@ -650,13 +650,13 @@
     }
 
     <span class="attr">#[cfg(feature = <span class="string">"xml_validation"</span>)]
-    </span><span class="kw">pub fn </span>id_span(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://docs.rs/proc-macro2/1.0.81/proc_macro2/struct.Span.html">Span</a> {
+    </span><span class="kw">pub fn </span>id_span(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://docs.rs/proc-macro2/1.0.85/proc_macro2/struct.Span.html">Span</a> {
         <span class="kw">for </span>arg <span class="kw">in </span><span class="kw-2">&amp;</span><span class="self">self</span>.attr.args {
             <span class="kw">if let </span>FieldAttributeArg::Id(<span class="kw">_</span>, span) = arg {
                 <span class="kw">return </span><span class="kw-2">*</span>span;
             }
         }
-        <a class="self" href="#208">self</a>.ident.<a href="https://docs.rs/proc-macro2/1.0.81/proc_macro2/struct.Ident.html#method.span">span</a>()
+        <a class="self" href="#208">self</a>.ident.<a href="https://docs.rs/proc-macro2/1.0.85/proc_macro2/struct.Ident.html#method.span">span</a>()
     }
 }
 
@@ -664,35 +664,35 @@
 </span><span class="kw">enum </span>TemplateChildAttributeMeta {
     Id {
         keyword: <a href="#21">kw::id</a>,
-        value: <a href="https://docs.rs/syn/2.0.60/syn/lit/struct.LitStr.html">LitStr</a>,
+        value: <a href="https://docs.rs/syn/2.0.66/syn/lit/struct.LitStr.html">LitStr</a>,
     },
     Internal {
         keyword: <a href="#22">kw::internal</a>,
-        value: <a href="https://docs.rs/syn/2.0.60/syn/lit/struct.LitBool.html">LitBool</a>,
+        value: <a href="https://docs.rs/syn/2.0.66/syn/lit/struct.LitBool.html">LitBool</a>,
     },
 }
 
-<span class="kw">impl </span><a href="https://docs.rs/syn/2.0.60/syn/parse/trait.Parse.html">Parse</a> <span class="kw">for </span><a href="#219-228">TemplateChildAttributeMeta</a> {
-    <span class="kw">fn </span>parse(input: <a href="https://docs.rs/syn/2.0.60/syn/parse/type.ParseStream.html">ParseStream</a>) -&gt; <span class="prelude-ty">Result</span>&lt;<span class="self">Self</span>&gt; {
-        <span class="kw">let </span>lookahead = <a href="#231">input</a>.<a href="https://docs.rs/syn/2.0.60/syn/parse/struct.ParseBuffer.html#method.lookahead1">lookahead1</a>();
+<span class="kw">impl </span><a href="https://docs.rs/syn/2.0.66/syn/parse/trait.Parse.html">Parse</a> <span class="kw">for </span><a href="#219-228">TemplateChildAttributeMeta</a> {
+    <span class="kw">fn </span>parse(input: <a href="https://docs.rs/syn/2.0.66/syn/parse/type.ParseStream.html">ParseStream</a>) -&gt; <span class="prelude-ty">Result</span>&lt;<span class="self">Self</span>&gt; {
+        <span class="kw">let </span>lookahead = <a href="#231">input</a>.<a href="https://docs.rs/syn/2.0.66/syn/parse/struct.ParseBuffer.html#method.lookahead1">lookahead1</a>();
         <span class="kw">if </span>lookahead.peek(kw::id) {
-            <span class="kw">let </span>keyword = <a href="#231">input</a>.<a href="https://docs.rs/syn/2.0.60/syn/parse/struct.ParseBuffer.html#method.parse">parse</a>()<span class="question-mark">?</span>;
-            <span class="kw">let _</span>: <a class="macro" href="https://docs.rs/syn/2.0.60/syn/macro.Token.html">Token!</a>[=] = <a href="#231">input</a>.<a href="https://docs.rs/syn/2.0.60/syn/parse/struct.ParseBuffer.html#method.parse">parse</a>()<span class="question-mark">?</span>;
-            <span class="kw">let </span>value = <a href="#231">input</a>.<a href="https://docs.rs/syn/2.0.60/syn/parse/struct.ParseBuffer.html#method.parse">parse</a>()<span class="question-mark">?</span>;
+            <span class="kw">let </span>keyword = <a href="#231">input</a>.<a href="https://docs.rs/syn/2.0.66/syn/parse/struct.ParseBuffer.html#method.parse">parse</a>()<span class="question-mark">?</span>;
+            <span class="kw">let _</span>: <a class="macro" href="https://docs.rs/syn/2.0.66/syn/macro.Token.html">Token!</a>[=] = <a href="#231">input</a>.<a href="https://docs.rs/syn/2.0.66/syn/parse/struct.ParseBuffer.html#method.parse">parse</a>()<span class="question-mark">?</span>;
+            <span class="kw">let </span>value = <a href="#231">input</a>.<a href="https://docs.rs/syn/2.0.66/syn/parse/struct.ParseBuffer.html#method.parse">parse</a>()<span class="question-mark">?</span>;
             <span class="prelude-val">Ok</span>(<span class="self">Self</span>::Id { <a href="#234">keyword</a>, <a href="#236">value</a> })
         } <span class="kw">else if </span>lookahead.peek(kw::internal) {
-            <span class="kw">let </span>keyword = <a href="#231">input</a>.<a href="https://docs.rs/syn/2.0.60/syn/parse/struct.ParseBuffer.html#method.parse">parse</a>()<span class="question-mark">?</span>;
-            <span class="kw">let _</span>: <a class="macro" href="https://docs.rs/syn/2.0.60/syn/macro.Token.html">Token!</a>[=] = <a href="#231">input</a>.<a href="https://docs.rs/syn/2.0.60/syn/parse/struct.ParseBuffer.html#method.parse">parse</a>()<span class="question-mark">?</span>;
-            <span class="kw">let </span>value = <a href="#231">input</a>.<a href="https://docs.rs/syn/2.0.60/syn/parse/struct.ParseBuffer.html#method.parse">parse</a>()<span class="question-mark">?</span>;
+            <span class="kw">let </span>keyword = <a href="#231">input</a>.<a href="https://docs.rs/syn/2.0.66/syn/parse/struct.ParseBuffer.html#method.parse">parse</a>()<span class="question-mark">?</span>;
+            <span class="kw">let _</span>: <a class="macro" href="https://docs.rs/syn/2.0.66/syn/macro.Token.html">Token!</a>[=] = <a href="#231">input</a>.<a href="https://docs.rs/syn/2.0.66/syn/parse/struct.ParseBuffer.html#method.parse">parse</a>()<span class="question-mark">?</span>;
+            <span class="kw">let </span>value = <a href="#231">input</a>.<a href="https://docs.rs/syn/2.0.66/syn/parse/struct.ParseBuffer.html#method.parse">parse</a>()<span class="question-mark">?</span>;
             <span class="prelude-val">Ok</span>(<span class="self">Self</span>::Internal { <a href="#239">keyword</a>, <a href="#241">value</a> })
         } <span class="kw">else </span>{
-            <span class="prelude-val">Err</span>(<a href="#232">lookahead</a>.<a href="https://docs.rs/syn/2.0.60/syn/lookahead/struct.Lookahead1.html#method.error">error</a>())
+            <span class="prelude-val">Err</span>(<a href="#232">lookahead</a>.<a href="https://docs.rs/syn/2.0.66/syn/lookahead/struct.Lookahead1.html#method.error">error</a>())
         }
     }
 }
 
 <span class="kw">impl </span><a href="https://docs.rs/quote/1.0.36/quote/to_tokens/trait.ToTokens.html">ToTokens</a> <span class="kw">for </span><a href="#219-228">TemplateChildAttributeMeta</a> {
-    <span class="kw">fn </span>to_tokens(<span class="kw-2">&amp;</span><span class="self">self</span>, tokens: <span class="kw-2">&amp;mut </span><a href="https://docs.rs/proc-macro2/1.0.81/proc_macro2/struct.TokenStream.html">proc_macro2::TokenStream</a>) {
+    <span class="kw">fn </span>to_tokens(<span class="kw-2">&amp;</span><span class="self">self</span>, tokens: <span class="kw-2">&amp;mut </span><a href="https://docs.rs/proc-macro2/1.0.85/proc_macro2/struct.TokenStream.html">proc_macro2::TokenStream</a>) {
         <span class="kw">match </span><span class="self"><a href="#250">self</a> </span>{
             <span class="self">Self</span>::Id { keyword, .. } =&gt; <a href="#252">keyword</a>.<a href="https://docs.rs/quote/1.0.36/quote/to_tokens/trait.ToTokens.html#tymethod.to_tokens">to_tokens</a>(<a href="#250">tokens</a>),
             <span class="self">Self</span>::Internal { keyword, .. } =&gt; <a href="#253">keyword</a>.<a href="https://docs.rs/quote/1.0.36/quote/to_tokens/trait.ToTokens.html#tymethod.to_tokens">to_tokens</a>(<a href="#250">tokens</a>),
@@ -700,12 +700,12 @@
     }
 }
 
-<span class="kw">fn </span>parse_field_attr_args(ty: <a href="#179-181">FieldAttributeType</a>, attr: <span class="kw-2">&amp;</span><a href="https://docs.rs/syn/2.0.60/syn/attr/struct.Attribute.html">Attribute</a>) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="#184-187">FieldAttribute</a>&gt; {
+<span class="kw">fn </span>parse_field_attr_args(ty: <a href="#179-181">FieldAttributeType</a>, attr: <span class="kw-2">&amp;</span><a href="https://docs.rs/syn/2.0.66/syn/attr/struct.Attribute.html">Attribute</a>) -&gt; <span class="prelude-ty">Result</span>&lt;<a href="#184-187">FieldAttribute</a>&gt; {
     <span class="kw">let </span><span class="kw-2">mut </span>args = <a href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html#method.new">Vec::new</a>();
 
     <span class="kw">if </span><span class="macro">matches!</span>(ty, FieldAttributeType::TemplateChild) &amp;&amp; !<span class="macro">matches!</span>(attr.meta, Meta::Path(<span class="kw">_</span>)) {
-        <span class="kw">let </span>meta_list = <a href="#258">attr</a>.<a href="https://docs.rs/syn/2.0.60/syn/attr/struct.Attribute.html#method.parse_args_with">parse_args_with</a>(
-            Punctuated::&lt;<a href="#219-228">TemplateChildAttributeMeta</a>, <a class="macro" href="https://docs.rs/syn/2.0.60/syn/macro.Token.html">Token!</a>[,]&gt;::parse_terminated,
+        <span class="kw">let </span>meta_list = <a href="#258">attr</a>.<a href="https://docs.rs/syn/2.0.66/syn/attr/struct.Attribute.html#method.parse_args_with">parse_args_with</a>(
+            Punctuated::&lt;<a href="#219-228">TemplateChildAttributeMeta</a>, <a class="macro" href="https://docs.rs/syn/2.0.66/syn/macro.Token.html">Token!</a>[,]&gt;::parse_terminated,
         )<span class="question-mark">?</span>;
 
         <span class="kw">for </span>meta <span class="kw">in </span>meta_list {
@@ -729,9 +729,9 @@
     <span class="prelude-val">Ok</span>(<a href="#184-187">FieldAttribute</a> { <a href="#258">ty</a>, <a href="#259">args</a> })
 }
 
-<span class="kw">fn </span>parse_field(field: <span class="kw-2">&amp;</span><a href="https://docs.rs/syn/2.0.60/syn/data/struct.Field.html">Field</a>) -&gt; <span class="prelude-ty">Result</span>&lt;<span class="prelude-ty">Option</span>&lt;<a href="#190-194">AttributedField</a>&gt;&gt; {
+<span class="kw">fn </span>parse_field(field: <span class="kw-2">&amp;</span><a href="https://docs.rs/syn/2.0.66/syn/data/struct.Field.html">Field</a>) -&gt; <span class="prelude-ty">Result</span>&lt;<span class="prelude-ty">Option</span>&lt;<a href="#190-194">AttributedField</a>&gt;&gt; {
     <span class="kw">let </span><span class="prelude-val">Some</span>(ident) = <span class="kw-2">&amp;</span><a href="#287">field</a>.ident <span class="kw">else </span>{
-        <span class="kw">return </span><span class="prelude-val">Err</span>(<a href="https://docs.rs/syn/2.0.60/syn/error/struct.Error.html#method.new_spanned">Error::new_spanned</a>(<a href="#287">field</a>, <span class="string">"expected identifier"</span>));
+        <span class="kw">return </span><span class="prelude-val">Err</span>(<a href="https://docs.rs/syn/2.0.66/syn/error/struct.Error.html#method.new_spanned">Error::new_spanned</a>(<a href="#287">field</a>, <span class="string">"expected identifier"</span>));
     };
 
     <span class="kw">let </span><span class="kw-2">mut </span>attr_field = <span class="prelude-val">None</span>;
@@ -762,7 +762,7 @@
     <span class="prelude-val">Ok</span>(<a href="#292">attr_field</a>)
 }
 
-<span class="kw">fn </span>path_is_template_child(path: <span class="kw-2">&amp;</span><a href="https://docs.rs/syn/2.0.60/syn/path/struct.Path.html">syn::Path</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
+<span class="kw">fn </span>path_is_template_child(path: <span class="kw-2">&amp;</span><a href="https://docs.rs/syn/2.0.66/syn/path/struct.Path.html">syn::Path</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
     <span class="kw">if </span>path.leading_colon.is_none()
         &amp;&amp; path.segments.len() == <span class="number">1
         </span>&amp;&amp; <span class="macro">matches!</span>(
@@ -787,7 +787,7 @@
 </span>}
 
 <span class="kw">pub fn </span>parse_fields(
-    fields: <span class="kw-2">&amp;</span><a href="https://docs.rs/syn/2.0.60/syn/data/enum.Fields.html">Fields</a>,
+    fields: <span class="kw-2">&amp;</span><a href="https://docs.rs/syn/2.0.66/syn/data/enum.Fields.html">Fields</a>,
     allow_missing_attribute: <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a>,
 ) -&gt; <span class="prelude-ty">Result</span>&lt;Vec&lt;<a href="#190-194">AttributedField</a>&gt;&gt; {
     <span class="kw">let </span><span class="kw-2">mut </span>attributed_fields = <a href="https://doc.rust-lang.org/nightly/alloc/vec/struct.Vec.html#method.new">Vec::new</a>();

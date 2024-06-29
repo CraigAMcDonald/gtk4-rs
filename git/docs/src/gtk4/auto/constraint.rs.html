@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/constraint.rs`."><title>constraint.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-46f98efaafac5295.ttf.woff2,FiraSans-Regular-018c141bf0843ffd.woff2,FiraSans-Medium-8f9a781e4970d388.woff2,SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2,SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-081576b923113409.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.79.0-nightly (aed2187d5 2024-04-27)" data-channel="nightly" data-search-js="search-bf21c90c8c1d92b1.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-e32f0c247825364d.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-20a3ad099b048cf2.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-09095024cf37855e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gtk4/src/auto/constraint.rs`."><title>constraint.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-46f98efaafac5295.ttf.woff2,FiraSans-Regular-018c141bf0843ffd.woff2,FiraSans-Medium-8f9a781e4970d388.woff2,SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2,SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-dd39b87e5fcfba68.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gtk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.81.0-nightly (e9e6e2e44 2024-06-28)" data-channel="nightly" data-search-js="search-0fe7219eb170c82e.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-118b08c4c78b968e.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-20a3ad099b048cf2.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-df360f571f6edeae.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,7 @@
 </script>
 
 
-<nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer"></div><main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../gtk4/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Type ‘S’ or ‘/’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings">Settings</a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer"></div><main><rustdoc-search></rustdoc-search><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -501,11 +501,13 @@
 <a href="#428" id="428">428</a>
 <a href="#429" id="429">429</a>
 <a href="#430" id="430">430</a>
+<a href="#431" id="431">431</a>
+<a href="#432" id="432">432</a>
 </pre></div><pre class="rust"><code><span class="comment">// This file was generated by gir (https://github.com/gtk-rs/gir)
 // from gir-files (https://github.com/gtk-rs/gir-files)
 // DO NOT EDIT
 
-</span><span class="kw">use crate</span>::{<a href="enums.rs.html#3028-3076">ConstraintAttribute</a>, <a href="enums.rs.html#3186-3198">ConstraintRelation</a>, <a href="constraint_target.rs.html#7-22">ConstraintTarget</a>};
+</span><span class="kw">use crate</span>::{<a href="../../../gtk4_sys/index.html">ffi</a>, <a href="enums.rs.html#3300-3348">ConstraintAttribute</a>, <a href="enums.rs.html#3458-3470">ConstraintRelation</a>, <a href="constraint_target.rs.html#8-23">ConstraintTarget</a>};
 <span class="kw">use </span>glib::{<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/prelude/index.html">prelude</a>::<span class="kw-2">*</span>, <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/index.html">translate</a>::<span class="kw-2">*</span>};
 
 <a class="macro" href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/macro.wrapper.html">glib::wrapper!</a> {
@@ -625,16 +627,16 @@
     /// the newly created constraint
     </span><span class="attr">#[doc(alias = <span class="string">"gtk_constraint_new"</span>)]
     </span><span class="kw">pub fn </span>new(
-        target: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="constraint_target.rs.html#7-22">ConstraintTarget</a>&gt;&gt;,
-        target_attribute: <a href="enums.rs.html#3028-3076">ConstraintAttribute</a>,
-        relation: <a href="enums.rs.html#3186-3198">ConstraintRelation</a>,
-        source: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="constraint_target.rs.html#7-22">ConstraintTarget</a>&gt;&gt;,
-        source_attribute: <a href="enums.rs.html#3028-3076">ConstraintAttribute</a>,
+        target: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="constraint_target.rs.html#8-23">ConstraintTarget</a>&gt;&gt;,
+        target_attribute: <a href="enums.rs.html#3300-3348">ConstraintAttribute</a>,
+        relation: <a href="enums.rs.html#3458-3470">ConstraintRelation</a>,
+        source: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="constraint_target.rs.html#8-23">ConstraintTarget</a>&gt;&gt;,
+        source_attribute: <a href="enums.rs.html#3300-3348">ConstraintAttribute</a>,
         multiplier: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>,
         constant: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>,
         strength: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>,
     ) -&gt; <a href="#8-98">Constraint</a> {
-        <a class="macro" href="../rt.rs.html#23-35">assert_initialized_main_thread!</a>();
+        <a class="macro" href="../rt.rs.html#24-36">assert_initialized_main_thread!</a>();
         <span class="kw">unsafe </span>{
             <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib_full.html">from_glib_full</a>(<a href="../../../gtk4_sys/fn.gtk_constraint_new.html">ffi::gtk_constraint_new</a>(
                 <a href="#125">target</a>.<a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#method.map">map</a>(|p| <a href="#137">p</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html#tymethod.as_ref">as_ref</a>()).<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
@@ -667,13 +669,13 @@
     /// the newly created constraint
     </span><span class="attr">#[doc(alias = <span class="string">"gtk_constraint_new_constant"</span>)]
     </span><span class="kw">pub fn </span>new_constant(
-        target: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="constraint_target.rs.html#7-22">ConstraintTarget</a>&gt;&gt;,
-        target_attribute: <a href="enums.rs.html#3028-3076">ConstraintAttribute</a>,
-        relation: <a href="enums.rs.html#3186-3198">ConstraintRelation</a>,
+        target: <span class="prelude-ty">Option</span>&lt;<span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="constraint_target.rs.html#8-23">ConstraintTarget</a>&gt;&gt;,
+        target_attribute: <a href="enums.rs.html#3300-3348">ConstraintAttribute</a>,
+        relation: <a href="enums.rs.html#3458-3470">ConstraintRelation</a>,
         constant: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>,
         strength: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>,
     ) -&gt; <a href="#8-98">Constraint</a> {
-        <a class="macro" href="../rt.rs.html#23-35">assert_initialized_main_thread!</a>();
+        <a class="macro" href="../rt.rs.html#24-36">assert_initialized_main_thread!</a>();
         <span class="kw">unsafe </span>{
             <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib_full.html">from_glib_full</a>(<a href="../../../gtk4_sys/fn.gtk_constraint_new_constant.html">ffi::gtk_constraint_new_constant</a>(
                 <a href="#167">target</a>.<a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#method.map">map</a>(|p| <a href="#176">p</a>.<a href="https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html#tymethod.as_ref">as_ref</a>()).<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
@@ -689,8 +691,8 @@
     </span><span class="doccomment">/// Creates a new builder-pattern struct instance to construct [`Constraint`] objects.
     ///
     /// This method returns an instance of [`ConstraintBuilder`](crate::builders::ConstraintBuilder) which can be used to create [`Constraint`] objects.
-    </span><span class="kw">pub fn </span>builder() -&gt; <a href="#343-345">ConstraintBuilder</a> {
-        <a href="#348-352">ConstraintBuilder::new</a>()
+    </span><span class="kw">pub fn </span>builder() -&gt; <a href="#345-347">ConstraintBuilder</a> {
+        <a href="#350-354">ConstraintBuilder::new</a>()
     }
 
     <span class="doccomment">/// Retrieves the constant factor added to the source attributes' value.
@@ -723,7 +725,7 @@
     /// a relation type
     </span><span class="attr">#[doc(alias = <span class="string">"gtk_constraint_get_relation"</span>)]
     #[doc(alias = <span class="string">"get_relation"</span>)]
-    </span><span class="kw">pub fn </span>relation(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="enums.rs.html#3186-3198">ConstraintRelation</a> {
+    </span><span class="kw">pub fn </span>relation(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="enums.rs.html#3458-3470">ConstraintRelation</a> {
         <span class="kw">unsafe </span>{ <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib.html">from_glib</a>(<a href="../../../gtk4_sys/fn.gtk_constraint_get_relation.html">ffi::gtk_constraint_get_relation</a>(<a class="self" href="#223">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
@@ -738,7 +740,7 @@
     /// the source of the constraint
     </span><span class="attr">#[doc(alias = <span class="string">"gtk_constraint_get_source"</span>)]
     #[doc(alias = <span class="string">"get_source"</span>)]
-    </span><span class="kw">pub fn </span>source(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="constraint_target.rs.html#7-22">ConstraintTarget</a>&gt; {
+    </span><span class="kw">pub fn </span>source(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="constraint_target.rs.html#8-23">ConstraintTarget</a>&gt; {
         <span class="kw">unsafe </span>{ <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib_none.html">from_glib_none</a>(<a href="../../../gtk4_sys/fn.gtk_constraint_get_source.html">ffi::gtk_constraint_get_source</a>(<a class="self" href="#238">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
@@ -749,10 +751,11 @@
     /// the source's attribute
     </span><span class="attr">#[doc(alias = <span class="string">"gtk_constraint_get_source_attribute"</span>)]
     #[doc(alias = <span class="string">"get_source_attribute"</span>)]
-    </span><span class="kw">pub fn </span>source_attribute(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="enums.rs.html#3028-3076">ConstraintAttribute</a> {
+    #[doc(alias = <span class="string">"source-attribute"</span>)]
+    </span><span class="kw">pub fn </span>source_attribute(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="enums.rs.html#3300-3348">ConstraintAttribute</a> {
         <span class="kw">unsafe </span>{
             <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib.html">from_glib</a>(<a href="../../../gtk4_sys/fn.gtk_constraint_get_source_attribute.html">ffi::gtk_constraint_get_source_attribute</a>(
-                <a class="self" href="#249">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
+                <a class="self" href="#250">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
             ))
         }
     }
@@ -765,7 +768,7 @@
     </span><span class="attr">#[doc(alias = <span class="string">"gtk_constraint_get_strength"</span>)]
     #[doc(alias = <span class="string">"get_strength"</span>)]
     </span><span class="kw">pub fn </span>strength(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a> {
-        <span class="kw">unsafe </span>{ <a href="../../../gtk4_sys/fn.gtk_constraint_get_strength.html">ffi::gtk_constraint_get_strength</a>(<a class="self" href="#264">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>) }
+        <span class="kw">unsafe </span>{ <a href="../../../gtk4_sys/fn.gtk_constraint_get_strength.html">ffi::gtk_constraint_get_strength</a>(<a class="self" href="#265">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>) }
     }
 
     <span class="doccomment">/// Retrieves the [`ConstraintTarget`][crate::ConstraintTarget] used as the target for
@@ -779,8 +782,8 @@
     /// a [`ConstraintTarget`][crate::ConstraintTarget]
     </span><span class="attr">#[doc(alias = <span class="string">"gtk_constraint_get_target"</span>)]
     #[doc(alias = <span class="string">"get_target"</span>)]
-    </span><span class="kw">pub fn </span>target(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="constraint_target.rs.html#7-22">ConstraintTarget</a>&gt; {
-        <span class="kw">unsafe </span>{ <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib_none.html">from_glib_none</a>(<a href="../../../gtk4_sys/fn.gtk_constraint_get_target.html">ffi::gtk_constraint_get_target</a>(<a class="self" href="#279">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>)) }
+    </span><span class="kw">pub fn </span>target(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="constraint_target.rs.html#8-23">ConstraintTarget</a>&gt; {
+        <span class="kw">unsafe </span>{ <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib_none.html">from_glib_none</a>(<a href="../../../gtk4_sys/fn.gtk_constraint_get_target.html">ffi::gtk_constraint_get_target</a>(<a class="self" href="#280">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
     <span class="doccomment">/// Retrieves the attribute of the target to be set by the constraint.
@@ -790,10 +793,11 @@
     /// the target's attribute
     </span><span class="attr">#[doc(alias = <span class="string">"gtk_constraint_get_target_attribute"</span>)]
     #[doc(alias = <span class="string">"get_target_attribute"</span>)]
-    </span><span class="kw">pub fn </span>target_attribute(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="enums.rs.html#3028-3076">ConstraintAttribute</a> {
+    #[doc(alias = <span class="string">"target-attribute"</span>)]
+    </span><span class="kw">pub fn </span>target_attribute(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="enums.rs.html#3300-3348">ConstraintAttribute</a> {
         <span class="kw">unsafe </span>{
             <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib.html">from_glib</a>(<a href="../../../gtk4_sys/fn.gtk_constraint_get_target_attribute.html">ffi::gtk_constraint_get_target_attribute</a>(
-                <a class="self" href="#290">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
+                <a class="self" href="#292">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
             ))
         }
     }
@@ -806,7 +810,7 @@
     /// `TRUE` if the constraint is attached
     </span><span class="attr">#[doc(alias = <span class="string">"gtk_constraint_is_attached"</span>)]
     </span><span class="kw">pub fn </span>is_attached(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
-        <span class="kw">unsafe </span>{ <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib.html">from_glib</a>(<a href="../../../gtk4_sys/fn.gtk_constraint_is_attached.html">ffi::gtk_constraint_is_attached</a>(<a class="self" href="#305">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>)) }
+        <span class="kw">unsafe </span>{ <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib.html">from_glib</a>(<a href="../../../gtk4_sys/fn.gtk_constraint_is_attached.html">ffi::gtk_constraint_is_attached</a>(<a class="self" href="#307">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
     <span class="doccomment">/// Checks whether the constraint describes a relation between an attribute
@@ -817,7 +821,7 @@
     /// `TRUE` if the constraint is a constant relation
     </span><span class="attr">#[doc(alias = <span class="string">"gtk_constraint_is_constant"</span>)]
     </span><span class="kw">pub fn </span>is_constant(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
-        <span class="kw">unsafe </span>{ <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib.html">from_glib</a>(<a href="../../../gtk4_sys/fn.gtk_constraint_is_constant.html">ffi::gtk_constraint_is_constant</a>(<a class="self" href="#316">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>)) }
+        <span class="kw">unsafe </span>{ <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib.html">from_glib</a>(<a href="../../../gtk4_sys/fn.gtk_constraint_is_constant.html">ffi::gtk_constraint_is_constant</a>(<a class="self" href="#318">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>)) }
     }
 
     <span class="doccomment">/// Checks whether the constraint is a required relation for solving the
@@ -828,7 +832,7 @@
     /// [`true`] if the constraint is required
     </span><span class="attr">#[doc(alias = <span class="string">"gtk_constraint_is_required"</span>)]
     </span><span class="kw">pub fn </span>is_required(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
-        <span class="kw">unsafe </span>{ <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib.html">from_glib</a>(<a href="../../../gtk4_sys/fn.gtk_constraint_is_required.html">ffi::gtk_constraint_is_required</a>(<a class="self" href="#327">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>)) }
+        <span class="kw">unsafe </span>{ <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib.html">from_glib</a>(<a href="../../../gtk4_sys/fn.gtk_constraint_is_required.html">ffi::gtk_constraint_is_required</a>(<a class="self" href="#329">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>)) }
     }
 }
 
@@ -847,7 +851,7 @@
     builder: glib::object::ObjectBuilder&lt;<span class="lifetime">'static</span>, <a href="#8-98">Constraint</a>&gt;,
 }
 
-<span class="kw">impl </span><a href="#343-345">ConstraintBuilder</a> {
+<span class="kw">impl </span><a href="#345-347">ConstraintBuilder</a> {
     <span class="kw">fn </span>new() -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
             builder: <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.Object.html#method.builder">glib::object::Object::builder</a>(),
@@ -857,7 +861,7 @@
     <span class="doccomment">/// The constant value to be added to the [`source-attribute`][struct@crate::Constraint#source-attribute].
     </span><span class="kw">pub fn </span>constant(<span class="self">self</span>, constant: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#355">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"constant"</span>, <a href="#355">constant</a>),
+            builder: <a class="self" href="#357">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"constant"</span>, <a href="#357">constant</a>),
         }
     }
 
@@ -865,14 +869,14 @@
     /// the [`source-attribute`][struct@crate::Constraint#source-attribute].
     </span><span class="kw">pub fn </span>multiplier(<span class="self">self</span>, multiplier: <a href="https://doc.rust-lang.org/nightly/std/primitive.f64.html">f64</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#363">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"multiplier"</span>, <a href="#363">multiplier</a>),
+            builder: <a class="self" href="#365">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"multiplier"</span>, <a href="#365">multiplier</a>),
         }
     }
 
     <span class="doccomment">/// The order relation between the terms of the constraint.
-    </span><span class="kw">pub fn </span>relation(<span class="self">self</span>, relation: <a href="enums.rs.html#3186-3198">ConstraintRelation</a>) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>relation(<span class="self">self</span>, relation: <a href="enums.rs.html#3458-3470">ConstraintRelation</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#370">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"relation"</span>, <a href="#370">relation</a>),
+            builder: <a class="self" href="#372">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"relation"</span>, <a href="#372">relation</a>),
         }
     }
 
@@ -881,17 +885,17 @@
     /// The constraint will set the [`target-attribute`][struct@crate::Constraint#target-attribute]
     /// property of the target using the [`source-attribute`][struct@crate::Constraint#source-attribute]
     /// property of the source.
-    </span><span class="kw">pub fn </span>source(<span class="self">self</span>, source: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="constraint_target.rs.html#7-22">ConstraintTarget</a>&gt;) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>source(<span class="self">self</span>, source: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="constraint_target.rs.html#8-23">ConstraintTarget</a>&gt;) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#381">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"source"</span>, <a href="#381">source</a>.<a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">clone</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html#tymethod.upcast">upcast</a>()),
+            builder: <a class="self" href="#383">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"source"</span>, <a href="#383">source</a>.<a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">clone</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html#tymethod.upcast">upcast</a>()),
         }
     }
 
     <span class="doccomment">/// The attribute of the [`source`][struct@crate::Constraint#source] read by the
     /// constraint.
-    </span><span class="kw">pub fn </span>source_attribute(<span class="self">self</span>, source_attribute: <a href="enums.rs.html#3028-3076">ConstraintAttribute</a>) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>source_attribute(<span class="self">self</span>, source_attribute: <a href="enums.rs.html#3300-3348">ConstraintAttribute</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#389">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"source-attribute"</span>, <a href="#389">source_attribute</a>),
+            builder: <a class="self" href="#391">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"source-attribute"</span>, <a href="#391">source_attribute</a>),
         }
     }
 
@@ -902,7 +906,7 @@
     /// value.
     </span><span class="kw">pub fn </span>strength(<span class="self">self</span>, strength: <a href="https://doc.rust-lang.org/nightly/std/primitive.i32.html">i32</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#400">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"strength"</span>, <a href="#400">strength</a>),
+            builder: <a class="self" href="#402">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"strength"</span>, <a href="#402">strength</a>),
         }
     }
 
@@ -911,16 +915,16 @@
     /// The constraint will set the [`target-attribute`][struct@crate::Constraint#target-attribute]
     /// property of the target using the [`source-attribute`][struct@crate::Constraint#source-attribute]
     /// property of the source widget.
-    </span><span class="kw">pub fn </span>target(<span class="self">self</span>, target: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="constraint_target.rs.html#7-22">ConstraintTarget</a>&gt;) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>target(<span class="self">self</span>, target: <span class="kw-2">&amp;</span><span class="kw">impl </span>IsA&lt;<a href="constraint_target.rs.html#8-23">ConstraintTarget</a>&gt;) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#411">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"target"</span>, <a href="#411">target</a>.<a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">clone</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html#tymethod.upcast">upcast</a>()),
+            builder: <a class="self" href="#413">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"target"</span>, <a href="#413">target</a>.<a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">clone</a>().<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.Cast.html#tymethod.upcast">upcast</a>()),
         }
     }
 
     <span class="doccomment">/// The attribute of the [`target`][struct@crate::Constraint#target] set by the constraint.
-    </span><span class="kw">pub fn </span>target_attribute(<span class="self">self</span>, target_attribute: <a href="enums.rs.html#3028-3076">ConstraintAttribute</a>) -&gt; <span class="self">Self </span>{
+    </span><span class="kw">pub fn </span>target_attribute(<span class="self">self</span>, target_attribute: <a href="enums.rs.html#3300-3348">ConstraintAttribute</a>) -&gt; <span class="self">Self </span>{
         <span class="self">Self </span>{
-            builder: <a class="self" href="#418">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"target-attribute"</span>, <a href="#418">target_attribute</a>),
+            builder: <a class="self" href="#420">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.property">property</a>(<span class="string">"target-attribute"</span>, <a href="#420">target_attribute</a>),
         }
     }
 
@@ -928,7 +932,7 @@
     </span><span class="doccomment">/// Build the [`Constraint`].
     </span><span class="attr">#[must_use = <span class="string">"Building the object from the builder is usually expensive and is not expected to have side effects"</span>]
     </span><span class="kw">pub fn </span>build(<span class="self">self</span>) -&gt; <a href="#8-98">Constraint</a> {
-        <a class="self" href="#427">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.build">build</a>()
+        <a class="self" href="#429">self</a>.builder.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/struct.ObjectBuilder.html#method.build">build</a>()
     }
 }
 </code></pre></div></section></main></body></html>

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gsk4/src/auto/mod.rs`."><title>mod.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-46f98efaafac5295.ttf.woff2,FiraSans-Regular-018c141bf0843ffd.woff2,FiraSans-Medium-8f9a781e4970d388.woff2,SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2,SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-081576b923113409.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gsk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.79.0-nightly (aed2187d5 2024-04-27)" data-channel="nightly" data-search-js="search-bf21c90c8c1d92b1.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-e32f0c247825364d.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-20a3ad099b048cf2.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-09095024cf37855e.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gsk4/src/auto/mod.rs`."><title>mod.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-46f98efaafac5295.ttf.woff2,FiraSans-Regular-018c141bf0843ffd.woff2,FiraSans-Medium-8f9a781e4970d388.woff2,SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2,SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-dd39b87e5fcfba68.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="gsk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.81.0-nightly (e9e6e2e44 2024-06-28)" data-channel="nightly" data-search-js="search-0fe7219eb170c82e.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-118b08c4c78b968e.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-20a3ad099b048cf2.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-df360f571f6edeae.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,7 @@
 </script>
 
 
-<nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer"></div><main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../gsk4/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Type ‘S’ or ‘/’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings">Settings</a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer"></div><main><rustdoc-search></rustdoc-search><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -306,8 +306,8 @@
 #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"broadway"</span>)))]
 </span><span class="kw">pub use </span><a href="broadway_renderer.rs.html#8-20"><span class="self">self</span>::broadway_renderer::BroadwayRenderer</a>;
 
-<span class="kw">mod </span><a href="cairo_node.rs.html#5-67">cairo_node</a>;
-<span class="kw">pub use </span><a href="cairo_node.rs.html#7-16"><span class="self">self</span>::cairo_node::CairoNode</a>;
+<span class="kw">mod </span><a href="cairo_node.rs.html#5-68">cairo_node</a>;
+<span class="kw">pub use </span><a href="cairo_node.rs.html#8-17"><span class="self">self</span>::cairo_node::CairoNode</a>;
 
 <span class="kw">mod </span><a href="cairo_renderer.rs.html#5-49">cairo_renderer</a>;
 <span class="kw">pub use </span><a href="cairo_renderer.rs.html#8-23"><span class="self">self</span>::cairo_renderer::CairoRenderer</a>;
@@ -318,8 +318,8 @@
 <span class="kw">mod </span><a href="color_matrix_node.rs.html#5-101">color_matrix_node</a>;
 <span class="kw">pub use </span><a href="color_matrix_node.rs.html#8-17"><span class="self">self</span>::color_matrix_node::ColorMatrixNode</a>;
 
-<span class="kw">mod </span><a href="color_node.rs.html#5-56">color_node</a>;
-<span class="kw">pub use </span><a href="color_node.rs.html#7-16"><span class="self">self</span>::color_node::ColorNode</a>;
+<span class="kw">mod </span><a href="color_node.rs.html#5-57">color_node</a>;
+<span class="kw">pub use </span><a href="color_node.rs.html#8-17"><span class="self">self</span>::color_node::ColorNode</a>;
 
 <span class="kw">mod </span><a href="conic_gradient_node.rs.html#5-141">conic_gradient_node</a>;
 <span class="kw">pub use </span><a href="conic_gradient_node.rs.html#8-17"><span class="self">self</span>::conic_gradient_node::ConicGradientNode</a>;
@@ -374,7 +374,7 @@
 <span class="kw">mod </span><a href="render_node.rs.html#5-151">render_node</a>;
 <span class="kw">pub use </span><a href="render_node.rs.html#8-31"><span class="self">self</span>::render_node::RenderNode</a>;
 
-<span class="kw">mod </span><a href="renderer.rs.html#5-298">renderer</a>;
+<span class="kw">mod </span><a href="renderer.rs.html#5-299">renderer</a>;
 <span class="kw">pub use </span><a href="renderer.rs.html#13-51"><span class="self">self</span>::renderer::Renderer</a>;
 
 <span class="kw">mod </span><a href="repeat_node.rs.html#5-76">repeat_node</a>;
@@ -399,11 +399,11 @@
 #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_14"</span>)))]
 </span><span class="kw">pub use </span><a href="stroke_node.rs.html#8-18"><span class="self">self</span>::stroke_node::StrokeNode</a>;
 
-<span class="kw">mod </span><a href="text_node.rs.html#5-132">text_node</a>;
-<span class="kw">pub use </span><a href="text_node.rs.html#7-16"><span class="self">self</span>::text_node::TextNode</a>;
+<span class="kw">mod </span><a href="text_node.rs.html#5-133">text_node</a>;
+<span class="kw">pub use </span><a href="text_node.rs.html#8-17"><span class="self">self</span>::text_node::TextNode</a>;
 
-<span class="kw">mod </span><a href="texture_node.rs.html#5-60">texture_node</a>;
-<span class="kw">pub use </span><a href="texture_node.rs.html#7-16"><span class="self">self</span>::texture_node::TextureNode</a>;
+<span class="kw">mod </span><a href="texture_node.rs.html#5-61">texture_node</a>;
+<span class="kw">pub use </span><a href="texture_node.rs.html#8-17"><span class="self">self</span>::texture_node::TextureNode</a>;
 
 <span class="attr">#[cfg(feature = <span class="string">"v4_10"</span>)]
 #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_10"</span>)))]
@@ -463,40 +463,40 @@
 <span class="kw">mod </span><a href="transform.rs.html#5-435">transform</a>;
 <span class="kw">pub use </span><a href="transform.rs.html#8-26"><span class="self">self</span>::transform::Transform</a>;
 
-<span class="kw">mod </span><a href="enums.rs.html#5-1889">enums</a>;
-<span class="kw">pub use </span><a href="enums.rs.html#17-71"><span class="self">self</span>::enums::BlendMode</a>;
-<span class="kw">pub use </span><a href="enums.rs.html#187-202"><span class="self">self</span>::enums::Corner</a>;
+<span class="kw">mod </span><a href="enums.rs.html#5-1890">enums</a>;
+<span class="kw">pub use </span><a href="enums.rs.html#18-72"><span class="self">self</span>::enums::BlendMode</a>;
+<span class="kw">pub use </span><a href="enums.rs.html#188-203"><span class="self">self</span>::enums::Corner</a>;
 <span class="attr">#[cfg(feature = <span class="string">"v4_14"</span>)]
 #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_14"</span>)))]
-</span><span class="kw">pub use </span><a href="enums.rs.html#309-325"><span class="self">self</span>::enums::FillRule</a>;
-<span class="kw">pub use </span><a href="enums.rs.html#435-462"><span class="self">self</span>::enums::GLUniformType</a>;
+</span><span class="kw">pub use </span><a href="enums.rs.html#310-326"><span class="self">self</span>::enums::FillRule</a>;
+<span class="kw">pub use </span><a href="enums.rs.html#436-463"><span class="self">self</span>::enums::GLUniformType</a>;
 <span class="attr">#[cfg(feature = <span class="string">"v4_14"</span>)]
 #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_14"</span>)))]
-</span><span class="kw">pub use </span><a href="enums.rs.html#579-594"><span class="self">self</span>::enums::LineCap</a>;
+</span><span class="kw">pub use </span><a href="enums.rs.html#580-595"><span class="self">self</span>::enums::LineCap</a>;
 <span class="attr">#[cfg(feature = <span class="string">"v4_14"</span>)]
 #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_14"</span>)))]
-</span><span class="kw">pub use </span><a href="enums.rs.html#716-730"><span class="self">self</span>::enums::LineJoin</a>;
+</span><span class="kw">pub use </span><a href="enums.rs.html#717-731"><span class="self">self</span>::enums::LineJoin</a>;
 <span class="attr">#[cfg(feature = <span class="string">"v4_10"</span>)]
 #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_10"</span>)))]
-</span><span class="kw">pub use </span><a href="enums.rs.html#840-857"><span class="self">self</span>::enums::MaskMode</a>;
+</span><span class="kw">pub use </span><a href="enums.rs.html#841-858"><span class="self">self</span>::enums::MaskMode</a>;
 <span class="attr">#[cfg(feature = <span class="string">"v4_14"</span>)]
 #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_14"</span>)))]
-</span><span class="kw">pub use </span><a href="enums.rs.html#979-998"><span class="self">self</span>::enums::PathDirection</a>;
+</span><span class="kw">pub use </span><a href="enums.rs.html#980-999"><span class="self">self</span>::enums::PathDirection</a>;
 <span class="attr">#[cfg(feature = <span class="string">"v4_14"</span>)]
 #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_14"</span>)))]
-</span><span class="kw">pub use </span><a href="enums.rs.html#1112-1141"><span class="self">self</span>::enums::PathOperation</a>;
-<span class="kw">pub use </span><a href="enums.rs.html#1255-1361"><span class="self">self</span>::enums::RenderNodeType</a>;
-<span class="kw">pub use </span><a href="enums.rs.html#1520-1534"><span class="self">self</span>::enums::ScalingFilter</a>;
-<span class="kw">pub use </span><a href="enums.rs.html#1626-1640"><span class="self">self</span>::enums::SerializationError</a>;
-<span class="kw">pub use </span><a href="enums.rs.html#1764-1795"><span class="self">self</span>::enums::TransformCategory</a>;
+</span><span class="kw">pub use </span><a href="enums.rs.html#1113-1142"><span class="self">self</span>::enums::PathOperation</a>;
+<span class="kw">pub use </span><a href="enums.rs.html#1256-1362"><span class="self">self</span>::enums::RenderNodeType</a>;
+<span class="kw">pub use </span><a href="enums.rs.html#1521-1535"><span class="self">self</span>::enums::ScalingFilter</a>;
+<span class="kw">pub use </span><a href="enums.rs.html#1627-1641"><span class="self">self</span>::enums::SerializationError</a>;
+<span class="kw">pub use </span><a href="enums.rs.html#1765-1796"><span class="self">self</span>::enums::TransformCategory</a>;
 
-<span class="kw">mod </span><a href="flags.rs.html#5-126">flags</a>;
+<span class="kw">mod </span><a href="flags.rs.html#5-127">flags</a>;
 <span class="attr">#[cfg(feature = <span class="string">"v4_14"</span>)]
 #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"v4_14"</span>)))]
-</span><span class="kw">pub use </span><a href="flags.rs.html#10-35"><span class="self">self</span>::flags::PathForeachFlags</a>;
+</span><span class="kw">pub use </span><a href="flags.rs.html#11-36"><span class="self">self</span>::flags::PathForeachFlags</a>;
 
 <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">mod </span>traits {
-    <span class="kw">pub use </span><a href="renderer.rs.html#87-296"><span class="kw">super</span>::renderer::GskRendererExt</a>;
+    <span class="kw">pub use </span><a href="renderer.rs.html#87-297"><span class="kw">super</span>::renderer::GskRendererExt</a>;
 }
 <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">mod </span>builders {
     <span class="kw">pub use </span><a href="gl_shader.rs.html#443-445"><span class="kw">super</span>::gl_shader::GLShaderBuilder</a>;

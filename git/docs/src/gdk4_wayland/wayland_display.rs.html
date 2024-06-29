@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gdk4-wayland/src/wayland_display.rs`."><title>wayland_display.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-46f98efaafac5295.ttf.woff2,FiraSans-Regular-018c141bf0843ffd.woff2,FiraSans-Medium-8f9a781e4970d388.woff2,SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2,SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-081576b923113409.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gdk4_wayland" data-themes="" data-resource-suffix="" data-rustdoc-version="1.79.0-nightly (aed2187d5 2024-04-27)" data-channel="nightly" data-search-js="search-bf21c90c8c1d92b1.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-e32f0c247825364d.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-20a3ad099b048cf2.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-09095024cf37855e.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gdk4-wayland/src/wayland_display.rs`."><title>wayland_display.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-46f98efaafac5295.ttf.woff2,FiraSans-Regular-018c141bf0843ffd.woff2,FiraSans-Medium-8f9a781e4970d388.woff2,SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2,SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-dd39b87e5fcfba68.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gdk4_wayland" data-themes="" data-resource-suffix="" data-rustdoc-version="1.81.0-nightly (e9e6e2e44 2024-06-28)" data-channel="nightly" data-search-js="search-0fe7219eb170c82e.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-118b08c4c78b968e.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-20a3ad099b048cf2.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-df360f571f6edeae.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,7 @@
 </script>
 
 
-<nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer"></div><main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../gdk4_wayland/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Type ‘S’ or ‘/’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings">Settings</a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer"></div><main><rustdoc-search></rustdoc-search><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -182,9 +182,15 @@
 <a href="#109" id="109">109</a>
 <a href="#110" id="110">110</a>
 <a href="#111" id="111">111</a>
+<a href="#112" id="112">112</a>
+<a href="#113" id="113">113</a>
+<a href="#114" id="114">114</a>
 </pre></div><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
 </span><span class="attr">#[cfg(feature = <span class="string">"wayland_crate"</span>)]
+#[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"wayland_crate"</span>)))]
+</span><span class="kw">use </span><a href="../../gdk4_wayland_sys/index.html"><span class="kw">crate</span>::ffi</a>;
+<span class="attr">#[cfg(feature = <span class="string">"wayland_crate"</span>)]
 #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"wayland_crate"</span>)))]
 </span><span class="kw">use </span>glib::{<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/prelude/index.html">prelude</a>::<span class="kw-2">*</span>, <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/index.html">translate</a>::<span class="kw-2">*</span>, <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/quark/struct.Quark.html">Quark</a>};
 <span class="attr">#[cfg(all(feature = <span class="string">"v4_4"</span>, feature = <span class="string">"egl"</span>))]
@@ -198,9 +204,9 @@
     <a href="https://smithay.github.io/wayland-rs/wayland_client/trait.Proxy.html">Proxy</a>,
 };
 
-<span class="kw">use </span><a href="auto/wayland_display.rs.html#8-28"><span class="kw">crate</span>::WaylandDisplay</a>;
+<span class="kw">use </span><a href="auto/wayland_display.rs.html#9-29"><span class="kw">crate</span>::WaylandDisplay</a>;
 
-<span class="kw">impl </span><a href="auto/wayland_display.rs.html#8-28">WaylandDisplay</a> {
+<span class="kw">impl </span><a href="auto/wayland_display.rs.html#9-29">WaylandDisplay</a> {
     <span class="doccomment">/// Retrieves the EGL display connection object for the given GDK display.
     ///
     /// # Returns
@@ -212,11 +218,11 @@
     #[doc(alias = <span class="string">"get_egl_display"</span>)]
     </span><span class="kw">pub fn </span>egl_display(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="https://docs.rs/khronos-egl/latest/khronos_egl/egl1_0/struct.Display.html">egl::Display</a>&gt; {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>ptr = <a href="../../gdk4_wayland_sys/fn.gdk_wayland_display_get_egl_display.html">ffi::gdk_wayland_display_get_egl_display</a>(<a class="self" href="#29">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>);
+            <span class="kw">let </span>ptr = <a href="../../gdk4_wayland_sys/fn.gdk_wayland_display_get_egl_display.html">ffi::gdk_wayland_display_get_egl_display</a>(<a class="self" href="#32">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>);
             <span class="kw">if </span>ptr.is_null() {
                 <span class="prelude-val">None
             </span>} <span class="kw">else </span>{
-                <span class="prelude-val">Some</span>(<a href="https://docs.rs/khronos-egl/latest/khronos_egl/egl1_0/struct.Display.html#method.from_ptr">egl::Display::from_ptr</a>(<a href="#31">ptr</a>))
+                <span class="prelude-val">Some</span>(<a href="https://docs.rs/khronos-egl/latest/khronos_egl/egl1_0/struct.Display.html#method.from_ptr">egl::Display::from_ptr</a>(<a href="#34">ptr</a>))
             }
         }
     }
@@ -232,15 +238,15 @@
     #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"wayland_crate"</span>)))]
     </span><span class="kw">pub fn </span>wl_compositor(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="https://smithay.github.io/wayland-rs/wayland_client/protocol/wl_compositor/struct.WlCompositor.html">WlCompositor</a>&gt; {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>compositor_ptr = <a href="../../gdk4_wayland_sys/fn.gdk_wayland_display_get_wl_compositor.html">ffi::gdk_wayland_display_get_wl_compositor</a>(<a class="self" href="#49">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>);
+            <span class="kw">let </span>compositor_ptr = <a href="../../gdk4_wayland_sys/fn.gdk_wayland_display_get_wl_compositor.html">ffi::gdk_wayland_display_get_wl_compositor</a>(<a class="self" href="#52">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>);
             <span class="kw">if </span>compositor_ptr.is_null() {
                 <span class="prelude-val">None
             </span>} <span class="kw">else </span>{
-                <span class="kw">let </span>cnx = <a class="self" href="#49">self</a>.<a href="#88-110">connection</a>();
-                <span class="kw">let </span>id = ObjectId::from_ptr(<a href="https://smithay.github.io/wayland-rs/wayland_client/trait.Proxy.html#tymethod.interface">WlCompositor::interface</a>(), <a href="#51">compositor_ptr</a> <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>)
+                <span class="kw">let </span>cnx = <a class="self" href="#52">self</a>.<a href="#91-113">connection</a>();
+                <span class="kw">let </span>id = ObjectId::from_ptr(<a href="https://smithay.github.io/wayland-rs/wayland_client/trait.Proxy.html#tymethod.interface">WlCompositor::interface</a>(), <a href="#54">compositor_ptr</a> <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>)
                     .<a href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html#method.unwrap">unwrap</a>();
 
-                <a href="https://smithay.github.io/wayland-rs/wayland_client/trait.Proxy.html#tymethod.from_id">WlCompositor::from_id</a>(<span class="kw-2">&amp;</span><a href="#55">cnx</a>, <a href="#56">id</a>).<a href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html#method.ok">ok</a>()
+                <a href="https://smithay.github.io/wayland-rs/wayland_client/trait.Proxy.html#tymethod.from_id">WlCompositor::from_id</a>(<span class="kw-2">&amp;</span><a href="#58">cnx</a>, <a href="#59">id</a>).<a href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html#method.ok">ok</a>()
             }
         }
     }
@@ -256,14 +262,14 @@
     #[cfg_attr(docsrs, doc(cfg(feature = <span class="string">"wayland_crate"</span>)))]
     </span><span class="kw">pub fn </span>wl_display(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="prelude-ty">Option</span>&lt;<a href="https://smithay.github.io/wayland-rs/wayland_client/protocol/wl_display/struct.WlDisplay.html">WlDisplay</a>&gt; {
         <span class="kw">unsafe </span>{
-            <span class="kw">let </span>display_ptr = <a href="../../gdk4_wayland_sys/fn.gdk_wayland_display_get_wl_display.html">ffi::gdk_wayland_display_get_wl_display</a>(<a class="self" href="#73">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>);
+            <span class="kw">let </span>display_ptr = <a href="../../gdk4_wayland_sys/fn.gdk_wayland_display_get_wl_display.html">ffi::gdk_wayland_display_get_wl_display</a>(<a class="self" href="#76">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>);
             <span class="kw">if </span>display_ptr.is_null() {
                 <span class="prelude-val">None
             </span>} <span class="kw">else </span>{
-                <span class="kw">let </span>cnx = <a class="self" href="#73">self</a>.<a href="#88-110">connection</a>();
-                <span class="kw">let </span>id = ObjectId::from_ptr(<a href="https://smithay.github.io/wayland-rs/wayland_client/trait.Proxy.html#tymethod.interface">WlDisplay::interface</a>(), <a href="#75">display_ptr</a> <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>).<a href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html#method.unwrap">unwrap</a>();
+                <span class="kw">let </span>cnx = <a class="self" href="#76">self</a>.<a href="#91-113">connection</a>();
+                <span class="kw">let </span>id = ObjectId::from_ptr(<a href="https://smithay.github.io/wayland-rs/wayland_client/trait.Proxy.html#tymethod.interface">WlDisplay::interface</a>(), <a href="#78">display_ptr</a> <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>).<a href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html#method.unwrap">unwrap</a>();
 
-                <a href="https://smithay.github.io/wayland-rs/wayland_client/trait.Proxy.html#tymethod.from_id">WlDisplay::from_id</a>(<span class="kw-2">&amp;</span><a href="#79">cnx</a>, <a href="#80">id</a>).<a href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html#method.ok">ok</a>()
+                <a href="https://smithay.github.io/wayland-rs/wayland_client/trait.Proxy.html#tymethod.from_id">WlDisplay::from_id</a>(<span class="kw-2">&amp;</span><a href="#82">cnx</a>, <a href="#83">id</a>).<a href="https://doc.rust-lang.org/nightly/core/result/enum.Result.html#method.ok">ok</a>()
             }
         }
     }
@@ -273,21 +279,21 @@
         <span class="kw">use </span><a href="https://doc.rust-lang.org/nightly/std/sync/once_lock/struct.OnceLock.html">std::sync::OnceLock</a>;
         <span class="kw">static </span>QUARK: OnceLock&lt;<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/quark/struct.Quark.html">Quark</a>&gt; = <a href="https://doc.rust-lang.org/nightly/std/sync/once_lock/struct.OnceLock.html#method.new">OnceLock::new</a>();
         <span class="kw">let </span>quark =
-            <span class="kw-2">*</span><a href="#90">QUARK</a>.<a href="https://doc.rust-lang.org/nightly/std/sync/once_lock/struct.OnceLock.html#method.get_or_init">get_or_init</a>(|| <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/quark/struct.Quark.html#method.from_str">Quark::from_str</a>(<span class="string">"gtk-rs-wayland-display-connection-quark"</span>));
+            <span class="kw-2">*</span><a href="#93">QUARK</a>.<a href="https://doc.rust-lang.org/nightly/std/sync/once_lock/struct.OnceLock.html#method.get_or_init">get_or_init</a>(|| <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/quark/struct.Quark.html#method.from_str">Quark::from_str</a>(<span class="string">"gtk-rs-wayland-display-connection-quark"</span>));
 
         <span class="kw">unsafe </span>{
-            <span class="kw">match </span><a class="self" href="#88">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html#tymethod.qdata">qdata</a>::&lt;<span class="prelude-ty">Option</span>&lt;<a href="https://smithay.github.io/wayland-rs/wayland_client/conn/struct.Connection.html">wayland_client::Connection</a>&gt;&gt;(<a href="#91">quark</a>) {
-                <span class="prelude-val">Some</span>(conn) =&gt; <a href="#96">conn</a>.<a href="https://doc.rust-lang.org/nightly/core/ptr/non_null/struct.NonNull.html#method.as_ref">as_ref</a>().<a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">clone</a>().<a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#method.unwrap">unwrap</a>(),
+            <span class="kw">match </span><a class="self" href="#91">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html#tymethod.qdata">qdata</a>::&lt;<span class="prelude-ty">Option</span>&lt;<a href="https://smithay.github.io/wayland-rs/wayland_client/conn/struct.Connection.html">wayland_client::Connection</a>&gt;&gt;(<a href="#94">quark</a>) {
+                <span class="prelude-val">Some</span>(conn) =&gt; <a href="#99">conn</a>.<a href="https://doc.rust-lang.org/nightly/core/ptr/non_null/struct.NonNull.html#method.as_ref">as_ref</a>().<a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">clone</a>().<a href="https://doc.rust-lang.org/nightly/core/option/enum.Option.html#method.unwrap">unwrap</a>(),
                 <span class="prelude-val">None </span>=&gt; {
                     <span class="kw">let </span>display_ptr =
-                        <a href="../../gdk4_wayland_sys/fn.gdk_wayland_display_get_wl_display.html">ffi::gdk_wayland_display_get_wl_display</a>(<a class="self" href="#88">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>);
+                        <a href="../../gdk4_wayland_sys/fn.gdk_wayland_display_get_wl_display.html">ffi::gdk_wayland_display_get_wl_display</a>(<a class="self" href="#91">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>);
                     <span class="kw">let </span>backend = wayland_backend::sys::client::Backend::from_foreign_display(
-                        <a href="#98">display_ptr</a> <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
+                        <a href="#101">display_ptr</a> <span class="kw">as </span><span class="kw-2">*mut </span><span class="kw">_</span>,
                     );
-                    <span class="kw">let </span>conn = <a href="https://smithay.github.io/wayland-rs/wayland_client/conn/struct.Connection.html#method.from_backend">wayland_client::Connection::from_backend</a>(<a href="#100">backend</a>);
-                    <a class="self" href="#88">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html#tymethod.set_qdata">set_qdata</a>(<a href="#91">quark</a>, <a href="#103">conn</a>.<a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">clone</a>());
+                    <span class="kw">let </span>conn = <a href="https://smithay.github.io/wayland-rs/wayland_client/conn/struct.Connection.html#method.from_backend">wayland_client::Connection::from_backend</a>(<a href="#103">backend</a>);
+                    <a class="self" href="#91">self</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/object/trait.ObjectExt.html#tymethod.set_qdata">set_qdata</a>(<a href="#94">quark</a>, <a href="#106">conn</a>.<a href="https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#tymethod.clone">clone</a>());
 
-                    <a href="#103">conn</a>
+                    <a href="#106">conn</a>
                 }
             }
         }

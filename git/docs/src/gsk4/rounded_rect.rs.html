@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gsk4/src/rounded_rect.rs`."><title>rounded_rect.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-46f98efaafac5295.ttf.woff2,FiraSans-Regular-018c141bf0843ffd.woff2,FiraSans-Medium-8f9a781e4970d388.woff2,SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2,SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-081576b923113409.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gsk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.79.0-nightly (aed2187d5 2024-04-27)" data-channel="nightly" data-search-js="search-bf21c90c8c1d92b1.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-e32f0c247825364d.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-20a3ad099b048cf2.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-09095024cf37855e.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `gsk4/src/rounded_rect.rs`."><title>rounded_rect.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-46f98efaafac5295.ttf.woff2,FiraSans-Regular-018c141bf0843ffd.woff2,FiraSans-Medium-8f9a781e4970d388.woff2,SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2,SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-dd39b87e5fcfba68.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="gsk4" data-themes="" data-resource-suffix="" data-rustdoc-version="1.81.0-nightly (e9e6e2e44 2024-06-28)" data-channel="nightly" data-search-js="search-0fe7219eb170c82e.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-118b08c4c78b968e.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-20a3ad099b048cf2.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-df360f571f6edeae.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]-->
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", checkDocsLatestStable);
 
@@ -71,7 +71,7 @@
 </script>
 
 
-<nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer"></div><main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../gsk4/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Type ‘S’ or ‘/’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings">Settings</a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer"></div><main><rustdoc-search></rustdoc-search><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -286,10 +286,12 @@
 <a href="#213" id="213">213</a>
 <a href="#214" id="214">214</a>
 <a href="#215" id="215">215</a>
+<a href="#216" id="216">216</a>
 </pre></div><pre class="rust"><code><span class="comment">// Take a look at the license at the top of the repository in the LICENSE file.
 
 </span><span class="kw">use </span><a href="https://doc.rust-lang.org/nightly/core/mem/index.html">std::mem</a>;
 
+<span class="kw">use </span><a href="../../gsk4_sys/index.html"><span class="kw">crate</span>::ffi</a>;
 <span class="kw">use </span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/index.html">glib::translate</a>::<span class="kw-2">*</span>;
 <span class="kw">use </span>graphene::{<a href="https://gtk-rs.org/gtk-rs-core/git/docs/graphene/auto/point/struct.Point.html">Point</a>, <a href="https://gtk-rs.org/gtk-rs-core/git/docs/graphene/auto/rect/struct.Rect.html">Rect</a>, <a href="https://gtk-rs.org/gtk-rs-core/git/docs/graphene/auto/size/struct.Size.html">Size</a>};
 
@@ -311,7 +313,7 @@
     </span><span class="kw">pub struct </span><a href="../../gsk4/struct.RoundedRect.html">RoundedRect</a>(BoxedInline&lt;<a href="../../gsk4_sys/struct.GskRoundedRect.html">ffi::GskRoundedRect</a>&gt;);
 }
 
-<span class="kw">impl </span><a href="#8-24">RoundedRect</a> {
+<span class="kw">impl </span><a href="#9-25">RoundedRect</a> {
     <span class="attr">#[doc(alias = <span class="string">"gsk_rounded_rect_init"</span>)]
     </span><span class="kw">pub fn </span>new(
         bounds: <a href="https://gtk-rs.org/gtk-rs-core/git/docs/graphene/auto/rect/struct.Rect.html">Rect</a>,
@@ -324,14 +326,14 @@
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>rounded_rect = <a href="https://doc.rust-lang.org/nightly/core/mem/maybe_uninit/union.MaybeUninit.html#method.uninit">mem::MaybeUninit::uninit</a>();
             <a href="../../gsk4_sys/fn.gsk_rounded_rect_init.html">ffi::gsk_rounded_rect_init</a>(
-                <a href="#37">rounded_rect</a>.<a href="https://doc.rust-lang.org/nightly/core/mem/maybe_uninit/union.MaybeUninit.html#method.as_mut_ptr">as_mut_ptr</a>(),
-                <a href="#29">bounds</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#30">top_left</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#31">top_right</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#32">bottom_right</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#33">bottom_left</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#38">rounded_rect</a>.<a href="https://doc.rust-lang.org/nightly/core/mem/maybe_uninit/union.MaybeUninit.html#method.as_mut_ptr">as_mut_ptr</a>(),
+                <a href="#30">bounds</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#31">top_left</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#32">top_right</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#33">bottom_right</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#34">bottom_left</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
             );
-            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.UnsafeFrom.html#tymethod.unsafe_from"><span class="self">Self</span>::unsafe_from</a>(<a href="#37">rounded_rect</a>.<a href="https://doc.rust-lang.org/nightly/core/mem/maybe_uninit/union.MaybeUninit.html#method.assume_init">assume_init</a>())
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.UnsafeFrom.html#tymethod.unsafe_from"><span class="self">Self</span>::unsafe_from</a>(<a href="#38">rounded_rect</a>.<a href="https://doc.rust-lang.org/nightly/core/mem/maybe_uninit/union.MaybeUninit.html#method.assume_init">assume_init</a>())
         }
     }
 
@@ -342,11 +344,11 @@
         <span class="kw">unsafe </span>{
             <span class="kw">let </span><span class="kw-2">mut </span>rounded_rect = <a href="https://doc.rust-lang.org/nightly/core/mem/maybe_uninit/union.MaybeUninit.html#method.uninit">mem::MaybeUninit::uninit</a>();
             <a href="../../gsk4_sys/fn.gsk_rounded_rect_init_from_rect.html">ffi::gsk_rounded_rect_init_from_rect</a>(
-                <a href="#55">rounded_rect</a>.<a href="https://doc.rust-lang.org/nightly/core/mem/maybe_uninit/union.MaybeUninit.html#method.as_mut_ptr">as_mut_ptr</a>(),
-                <a href="#52">bounds</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
-                <a href="#52">radius</a>,
+                <a href="#56">rounded_rect</a>.<a href="https://doc.rust-lang.org/nightly/core/mem/maybe_uninit/union.MaybeUninit.html#method.as_mut_ptr">as_mut_ptr</a>(),
+                <a href="#53">bounds</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
+                <a href="#53">radius</a>,
             );
-            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.UnsafeFrom.html#tymethod.unsafe_from"><span class="self">Self</span>::unsafe_from</a>(<a href="#55">rounded_rect</a>.<a href="https://doc.rust-lang.org/nightly/core/mem/maybe_uninit/union.MaybeUninit.html#method.assume_init">assume_init</a>())
+            <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.UnsafeFrom.html#tymethod.unsafe_from"><span class="self">Self</span>::unsafe_from</a>(<a href="#56">rounded_rect</a>.<a href="https://doc.rust-lang.org/nightly/core/mem/maybe_uninit/union.MaybeUninit.html#method.assume_init">assume_init</a>())
         }
     }
 
@@ -362,7 +364,7 @@
     </span><span class="attr">#[doc(alias = <span class="string">"gsk_rounded_rect_normalize"</span>)]
     </span><span class="kw">pub fn </span>normalize(<span class="kw-2">&amp;mut </span><span class="self">self</span>) {
         <span class="kw">unsafe </span>{
-            <a href="../../gsk4_sys/fn.gsk_rounded_rect_normalize.html">ffi::gsk_rounded_rect_normalize</a>(<span class="kw-2">&amp;mut </span><a class="self" href="#75">self</a>.inner);
+            <a href="../../gsk4_sys/fn.gsk_rounded_rect_normalize.html">ffi::gsk_rounded_rect_normalize</a>(<span class="kw-2">&amp;mut </span><a class="self" href="#76">self</a>.inner);
         }
     }
 
@@ -380,7 +382,7 @@
     </span><span class="attr">#[doc(alias = <span class="string">"gsk_rounded_rect_offset"</span>)]
     </span><span class="kw">pub fn </span>offset(<span class="kw-2">&amp;mut </span><span class="self">self</span>, dx: <a href="https://doc.rust-lang.org/nightly/std/primitive.f32.html">f32</a>, dy: <a href="https://doc.rust-lang.org/nightly/std/primitive.f32.html">f32</a>) {
         <span class="kw">unsafe </span>{
-            <a href="../../gsk4_sys/fn.gsk_rounded_rect_offset.html">ffi::gsk_rounded_rect_offset</a>(<span class="kw-2">&amp;mut </span><a class="self" href="#93">self</a>.inner, <a href="#93">dx</a>, <a href="#93">dy</a>);
+            <a href="../../gsk4_sys/fn.gsk_rounded_rect_offset.html">ffi::gsk_rounded_rect_offset</a>(<span class="kw-2">&amp;mut </span><a class="self" href="#94">self</a>.inner, <a href="#94">dx</a>, <a href="#94">dy</a>);
         }
     }
 
@@ -407,7 +409,7 @@
     </span><span class="attr">#[doc(alias = <span class="string">"gsk_rounded_rect_shrink"</span>)]
     </span><span class="kw">pub fn </span>shrink(<span class="kw-2">&amp;mut </span><span class="self">self</span>, top: <a href="https://doc.rust-lang.org/nightly/std/primitive.f32.html">f32</a>, right: <a href="https://doc.rust-lang.org/nightly/std/primitive.f32.html">f32</a>, bottom: <a href="https://doc.rust-lang.org/nightly/std/primitive.f32.html">f32</a>, left: <a href="https://doc.rust-lang.org/nightly/std/primitive.f32.html">f32</a>) {
         <span class="kw">unsafe </span>{
-            <a href="../../gsk4_sys/fn.gsk_rounded_rect_shrink.html">ffi::gsk_rounded_rect_shrink</a>(<span class="kw-2">&amp;mut </span><a class="self" href="#120">self</a>.inner, <a href="#120">top</a>, <a href="#120">right</a>, <a href="#120">bottom</a>, <a href="#120">left</a>);
+            <a href="../../gsk4_sys/fn.gsk_rounded_rect_shrink.html">ffi::gsk_rounded_rect_shrink</a>(<span class="kw-2">&amp;mut </span><a class="self" href="#121">self</a>.inner, <a href="#121">top</a>, <a href="#121">right</a>, <a href="#121">bottom</a>, <a href="#121">left</a>);
         }
     }
 
@@ -422,7 +424,7 @@
     /// [`true`] if the rectangle is rectilinear
     </span><span class="attr">#[doc(alias = <span class="string">"gsk_rounded_rect_is_rectilinear"</span>)]
     </span><span class="kw">pub fn </span>is_rectilinear(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
-        <span class="kw">unsafe </span>{ <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib.html">from_glib</a>(<a href="../../gsk4_sys/fn.gsk_rounded_rect_is_rectilinear.html">ffi::gsk_rounded_rect_is_rectilinear</a>(<span class="kw-2">&amp;</span><a class="self" href="#136">self</a>.inner)) }
+        <span class="kw">unsafe </span>{ <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib.html">from_glib</a>(<a href="../../gsk4_sys/fn.gsk_rounded_rect_is_rectilinear.html">ffi::gsk_rounded_rect_is_rectilinear</a>(<span class="kw-2">&amp;</span><a class="self" href="#137">self</a>.inner)) }
     }
 
     <span class="doccomment">/// Checks if the given @point is inside the rounded rectangle.
@@ -436,8 +438,8 @@
     </span><span class="kw">pub fn </span>contains_point(<span class="kw-2">&amp;</span><span class="self">self</span>, point: <a href="https://gtk-rs.org/gtk-rs-core/git/docs/graphene/auto/point/struct.Point.html">Point</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
         <span class="kw">unsafe </span>{
             <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib.html">from_glib</a>(<a href="../../gsk4_sys/fn.gsk_rounded_rect_contains_point.html">ffi::gsk_rounded_rect_contains_point</a>(
-                <span class="kw-2">&amp;</span><a class="self" href="#148">self</a>.inner,
-                <a href="#148">point</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
+                <span class="kw-2">&amp;</span><a class="self" href="#149">self</a>.inner,
+                <a href="#149">point</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
             ))
         }
     }
@@ -453,8 +455,8 @@
     </span><span class="kw">pub fn </span>contains_rect(<span class="kw-2">&amp;</span><span class="self">self</span>, rect: <a href="https://gtk-rs.org/gtk-rs-core/git/docs/graphene/auto/rect/struct.Rect.html">Rect</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
         <span class="kw">unsafe </span>{
             <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib.html">from_glib</a>(<a href="../../gsk4_sys/fn.gsk_rounded_rect_contains_rect.html">ffi::gsk_rounded_rect_contains_rect</a>(
-                <span class="kw-2">&amp;</span><a class="self" href="#165">self</a>.inner,
-                <a href="#165">rect</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
+                <span class="kw-2">&amp;</span><a class="self" href="#166">self</a>.inner,
+                <a href="#166">rect</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
             ))
         }
     }
@@ -470,8 +472,8 @@
     </span><span class="kw">pub fn </span>intersects_rect(<span class="kw-2">&amp;</span><span class="self">self</span>, rect: <a href="https://gtk-rs.org/gtk-rs-core/git/docs/graphene/auto/rect/struct.Rect.html">Rect</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/std/primitive.bool.html">bool</a> {
         <span class="kw">unsafe </span>{
             <a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/fn.from_glib.html">from_glib</a>(<a href="../../gsk4_sys/fn.gsk_rounded_rect_intersects_rect.html">ffi::gsk_rounded_rect_intersects_rect</a>(
-                <span class="kw-2">&amp;</span><a class="self" href="#182">self</a>.inner,
-                <a href="#182">rect</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
+                <span class="kw-2">&amp;</span><a class="self" href="#183">self</a>.inner,
+                <a href="#183">rect</a>.<a href="https://gtk-rs.org/gtk-rs-core/git/docs/glib/translate/trait.ToGlibPtr.html#tymethod.to_glib_none">to_glib_none</a>().<span class="number">0</span>,
             ))
         }
     }
@@ -479,25 +481,25 @@
     <span class="attr">#[inline]
     </span><span class="kw">pub fn </span>bounds(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/graphene/auto/rect/struct.Rect.html">graphene::Rect</a> {
         <span class="kw">unsafe </span>{
-            <span class="kw-2">&amp;*</span>(<span class="kw-2">&amp;</span><a class="self" href="#192">self</a>.inner.bounds <span class="kw">as </span><span class="kw-2">*const </span>graphene::ffi::graphene_rect_t <span class="kw">as </span><span class="kw-2">*const </span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/graphene/auto/rect/struct.Rect.html">graphene::Rect</a>)
+            <span class="kw-2">&amp;*</span>(<span class="kw-2">&amp;</span><a class="self" href="#193">self</a>.inner.bounds <span class="kw">as </span><span class="kw-2">*const </span>graphene::ffi::graphene_rect_t <span class="kw">as </span><span class="kw-2">*const </span><a href="https://gtk-rs.org/gtk-rs-core/git/docs/graphene/auto/rect/struct.Rect.html">graphene::Rect</a>)
         }
     }
 
     <span class="attr">#[inline]
     </span><span class="kw">pub fn </span>corner(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span>[<a href="https://gtk-rs.org/gtk-rs-core/git/docs/graphene/auto/size/struct.Size.html">graphene::Size</a>; <span class="number">4</span>] {
         <span class="kw">unsafe </span>{
-            <span class="kw-2">&amp;*</span>(<span class="kw-2">&amp;</span><a class="self" href="#199">self</a>.inner.corner <span class="kw">as </span><span class="kw-2">*const </span>[graphene::ffi::graphene_size_t; <span class="number">4</span>]
+            <span class="kw-2">&amp;*</span>(<span class="kw-2">&amp;</span><a class="self" href="#200">self</a>.inner.corner <span class="kw">as </span><span class="kw-2">*const </span>[graphene::ffi::graphene_size_t; <span class="number">4</span>]
                 <span class="kw">as </span><span class="kw-2">*const </span>[<a href="https://gtk-rs.org/gtk-rs-core/git/docs/graphene/auto/size/struct.Size.html">graphene::Size</a>; <span class="number">4</span>])
         }
     }
 }
 
-<span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html">std::fmt::Debug</a> <span class="kw">for </span><a href="#8-24">RoundedRect</a> {
+<span class="kw">impl </span><a href="https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html">std::fmt::Debug</a> <span class="kw">for </span><a href="#9-25">RoundedRect</a> {
     <span class="kw">fn </span>fmt(<span class="kw-2">&amp;</span><span class="self">self</span>, f: <span class="kw-2">&amp;mut </span><a href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html">std::fmt::Formatter</a>) -&gt; <a href="https://doc.rust-lang.org/nightly/core/fmt/type.Result.html">std::fmt::Result</a> {
-        <a href="#208">f</a>.<a href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html#method.debug_struct">debug_struct</a>(<span class="string">"RoundedRect"</span>)
-            .<a href="https://doc.rust-lang.org/nightly/core/fmt/builders/struct.DebugStruct.html#method.field">field</a>(<span class="string">"is_rectilinear"</span>, <span class="kw-2">&amp;</span><a class="self" href="#208">self</a>.<a href="#136-138">is_rectilinear</a>())
-            .<a href="https://doc.rust-lang.org/nightly/core/fmt/builders/struct.DebugStruct.html#method.field">field</a>(<span class="string">"bounds"</span>, <span class="kw-2">&amp;</span><a class="self" href="#208">self</a>.<a href="#192-196">bounds</a>())
-            .<a href="https://doc.rust-lang.org/nightly/core/fmt/builders/struct.DebugStruct.html#method.field">field</a>(<span class="string">"corner"</span>, <span class="kw-2">&amp;</span><a class="self" href="#208">self</a>.<a href="#199-204">corner</a>())
+        <a href="#209">f</a>.<a href="https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html#method.debug_struct">debug_struct</a>(<span class="string">"RoundedRect"</span>)
+            .<a href="https://doc.rust-lang.org/nightly/core/fmt/builders/struct.DebugStruct.html#method.field">field</a>(<span class="string">"is_rectilinear"</span>, <span class="kw-2">&amp;</span><a class="self" href="#209">self</a>.<a href="#137-139">is_rectilinear</a>())
+            .<a href="https://doc.rust-lang.org/nightly/core/fmt/builders/struct.DebugStruct.html#method.field">field</a>(<span class="string">"bounds"</span>, <span class="kw-2">&amp;</span><a class="self" href="#209">self</a>.<a href="#193-197">bounds</a>())
+            .<a href="https://doc.rust-lang.org/nightly/core/fmt/builders/struct.DebugStruct.html#method.field">field</a>(<span class="string">"corner"</span>, <span class="kw-2">&amp;</span><a class="self" href="#209">self</a>.<a href="#200-205">corner</a>())
             .<a href="https://doc.rust-lang.org/nightly/core/fmt/builders/struct.DebugStruct.html#method.finish">finish</a>()
     }
 }
